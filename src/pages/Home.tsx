@@ -1,6 +1,4 @@
 import FeaturedCard from "@/components/FeaturedCard";
-import Footer from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 
 function Home() {
