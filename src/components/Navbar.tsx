@@ -30,10 +30,10 @@ export function Navbar() {
                   </NavigationMenuTrigger>
 
                   <NavigationMenuContent>
-                    <ul className="w-32 ">
+                    <ul className="w-32  ">
                       <ListItem title="Write Blog" />
                       <ListItem title="Home" />
-                      <ListItem title="About" />
+                      <ListItem title="Profile" />
                       <ListItem
                         title="Logout"
                         className="bg-red-500 hover:bg-red-600"
