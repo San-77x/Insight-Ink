@@ -19,6 +19,7 @@ function App() {
           <SignInButton />
         </SignedOut>
         <SignedIn>
+          <Home />
           <SignOutButton signOutCallback={() => redirect("/")} />
         </SignedIn>
       </main>

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 function Home() {
   return (
     <>
-      <div className="h-screen">
+      <div className="">
         <div className="h-[350px] bg-pink-100 border-b border-black">
           <div className="max-w-[1100px] h-full  mx-auto flex justify-between items-end pb-10 ">
             <h1 className="font-mono font-extrabold text-7xl mx-8 ">

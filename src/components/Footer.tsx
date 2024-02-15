@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div>
+    <div className=" bg-pink-100 py-16 border-t border-black">
       <div className="text-center">
         <a
           href="/"
