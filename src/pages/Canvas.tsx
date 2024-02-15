@@ -22,9 +22,8 @@ import {
 } from "lucide-react";
 function Canvas() {
   return (
-    <div className="bg-gray-100 h-screen">
+    <div className="bg-gray-400 h-screen ">
       <div>
-        <Navbar />
         <div>
           <div className="">
             <input
