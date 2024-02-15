@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -10,72 +9,46 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Button } from "./ui/button";
-
-const components: { title: string; href?: string }[] = [
-  {
-    title: "Already have an account ?",
-    href: "/docs/primitives/alert-dialog",
-  },
-  {
-    title: "I'm New Here",
-    href: "/docs/primitives/hover-card",
-  },
-];
+import { Menu } from "lucide-react";
 
 export function Navbar() {
   return (
     <>
-      <div className="w-full bg-white"> </div>
-      <div className="w-full bg-darkk h-[100px]">
-        <div className="mt-3 flex items-center justify-between max-w-[1200px] mx-auto ">
+      <div className="w-full bg-darkk">
+        <div className="h-[100px] flex items-center justify-between max-w-[1400px] mx-auto">
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
             InsightInk
           </h1>
-          <NavigationMenu className="m-8">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Create a Post
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About Us
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+          <div className="sm:hidden">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={`bg-litee hover:bg-litee mx-8 ${navigationMenuTriggerStyle()}`}
+                  >
+                    <Menu />
+                  </NavigationMenuTrigger>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-white ">
-                  <Button className="bg-white">Getting Started</Button>
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {components.map((component) => (
+                  <NavigationMenuContent>
+                    <ul className="w-32 ">
+                      <ListItem title="Write Blog" />
+                      <ListItem title="Home" />
+                      <ListItem title="About" />
                       <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {" "}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+                        title="Logout"
+                        className="bg-red-500 hover:bg-red-600"
+                      />
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
         </div>
       </div>
     </>
   );
 }
-
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
