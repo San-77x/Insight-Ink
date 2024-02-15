@@ -6,11 +6,7 @@ import {
 } from "@clerk/clerk-react";
 import Home from "./pages/Home";
 import { Navbar } from "./components/Navbar";
-import Login from "./pages/Login";
 import Footer from "./components/Footer";
-import Canvas from "./pages/Canvas";
-import Card from "./components/Card";
-import FeaturedCard from "./components/FeaturedCard";
 
 function App() {
   return (
