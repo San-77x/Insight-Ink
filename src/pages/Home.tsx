@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 function Home() {
   return (
     <>
-      <div className="">
-        <div className="h-[350px] bg-pink-100 border-b border-black">
-          <div className="max-w-[1100px] h-full  mx-auto flex justify-between items-end pb-10 ">
-            <h1 className="font-mono font-extrabold text-7xl mx-8 ">
+      <div className="mt-3">
+        <div className="h-[450px] bg-cyan-200 ">
+          <div className="max-w-[1200px] h-full  mx-auto flex justify-between items-center pb-10 ">
+            <h1 className="font-mono font-extrabold text-8xl mx-8 ">
               Stay <br /> Curious
             </h1>
             <p className="max-w-[500px] font-mono leading-6">

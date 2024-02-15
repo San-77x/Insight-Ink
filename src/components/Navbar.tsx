@@ -27,8 +27,8 @@ export function Navbar() {
   return (
     <>
       <div className="w-full bg-white"> </div>
-      <div className="w-full bg-pink-100 h-[100px] border-b border-black">
-        <div className="mt-3 flex items-center justify-between max-w-[1100px] mx-auto ">
+      <div className="w-full bg-cyan-200 h-[100px]">
+        <div className="mt-3 flex items-center justify-between max-w-[1200px] mx-auto ">
           <h1 className="mx-8 font-mono  text-4xl font-extrabold ">
             InsightInk
           </h1>

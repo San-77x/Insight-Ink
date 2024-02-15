@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className=" bg-pink-100 py-16 border-t border-black">
+    <div className="  py-16 ">
       <div className="text-center">
         <a
           href="/"
@@ -16,10 +16,8 @@ function Footer() {
           />
           Insight-Ink
         </a>
-        <span className="block text-sm text-center text-gray-500 dark:text-gray-400">
-          © 2024 Insight-Ink. All Rights Reserved. Built with love.
-        </span>
-        <ul className="flex justify-center mt-5 space-x-5">
+
+        <ul className="flex justify-center my-5 space-x-5">
           <li>
             <a
               href="/"
@@ -61,6 +59,9 @@ function Footer() {
             </a>
           </li>
         </ul>
+        <span className="block text-sm text-center text-gray-500 dark:text-gray-400">
+          © 2024 Insight-Ink. All Rights Reserved. Built with love.
+        </span>
       </div>
     </div>
   );

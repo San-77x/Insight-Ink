@@ -8,11 +8,13 @@ import Home from "./pages/Home";
 import { Navbar } from "./components/Navbar";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Canvas from "./pages/Canvas";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <Canvas />
+      {/* <Navbar />
       <main>
         <SignedOut>
           <Home />
@@ -23,7 +25,7 @@ function App() {
           <SignOutButton signOutCallback={() => redirect("/")} />
         </SignedIn>
       </main>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
