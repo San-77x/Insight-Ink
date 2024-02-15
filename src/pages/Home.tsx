@@ -7,8 +7,8 @@ function Home() {
   return (
     <>
       <div className="mt-3 bg-litee">
-        <div className="h-[450px] bg-litee ">
-          <div className="max-w-[1200px] h-full  mx-auto flex justify-between items-center pb-10 border-black border-b">
+        <div className=" py-[100px] bg-litee ">
+          <div className="max-w-[1200px] h-full  mx-auto flex justify-between items-center pb-10">
             <h1 className="font-mono font-extrabold text-8xl mx-8 text-darkk ">
               Stay <br /> Curious <br />
               <Button
@@ -19,7 +19,7 @@ function Home() {
                 Get Started
               </Button>
             </h1>
-            <p className="max-w-[500px] font-mono leading-6 text-justify text-darkk">
+            <p className="max-w-[500px] font-mono leading-6 text-justify text-black text-base">
               "Explore a world of narratives, insights, and wisdom spanning an
               array of subjects, brought to life by a diverse ensemble of
               writers. Delve into the depths of knowledge and creativity across
@@ -28,7 +28,8 @@ function Home() {
             </p>
           </div>
         </div>
-        <div>
+        <div className="h-3 bg-white" />
+        <div className="m-3">
           <FeaturedCard />
         </div>
       </div>
