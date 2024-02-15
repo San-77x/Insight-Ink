@@ -15,9 +15,7 @@ import FeaturedCard from "./components/FeaturedCard";
 function App() {
   return (
     <div>
-      <FeaturedCard />
-
-      {/* <Navbar />
+      <Navbar />
       <main>
         <SignedOut>
           <Home />
@@ -28,7 +26,7 @@ function App() {
           <SignOutButton signOutCallback={() => redirect("/")} />
         </SignedIn>
       </main>
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }
