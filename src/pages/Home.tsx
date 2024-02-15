@@ -8,18 +8,18 @@ function Home() {
     <>
       <div className="mt-3 bg-litee">
         <div className=" py-[100px] bg-litee ">
-          <div className="max-w-[1200px] h-full  mx-auto flex justify-between items-center pb-10">
+          <div className="max-w-[1200px] h-full  mx-auto sm:flex sm:justify-between items-center pb-10">
             <h1 className="font-mono font-extrabold text-8xl mx-8 text-darkk ">
               Stay <br /> Curious <br />
               <Button
                 variant={"destructive"}
-                className="bg-darkk text-litee font-sans font-semibold px-12 py-5 hover:bg-darkk/80"
+                className="bg-darkk text-litee font-ui-serif font-semibold px-12 py-5 hover:bg-darkk/80 hidden sm:visible"
                 size={"lg"}
               >
                 Get Started
               </Button>
             </h1>
-            <p className="max-w-[500px] font-mono leading-6 text-justify text-black text-base">
+            <p className="max-w-[500px] font-mono leading-6 text-justify text-black text-base mx-16 mt-10">
               "Explore a world of narratives, insights, and wisdom spanning an
               array of subjects, brought to life by a diverse ensemble of
               writers. Delve into the depths of knowledge and creativity across
