@@ -18,11 +18,11 @@ function Card({
 }: prop) {
   return (
     <div>
-      <div className="rounded overflow-hidden shadow-lg flex flex-col">
+      <div className="rounded overflow-hidden shadow-lg flex flex-col h-[500px]">
         <div className="relative">
           <a href="/">
             <img
-              className="w-full h-[300px] "
+              className="w-full h-[250px] md:h-[200px]"
               src={image}
               alt="Sunset in the mountains"
             />
