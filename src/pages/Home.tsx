@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 function Home() {
   return (
     <>
-      <div className="mt-3 bg-litee">
-        <div className=" py-[100px] bg-litee max-w-[1200px] mx-auto">
+      <div className="mt-2 bg-litee">
+        <div className=" py-[80px] bg-litee max-w-[1200px] mx-auto">
           <div className="max-w-[1200px] h-full  mx-auto lg:flex lg:justify-between md:items-center pb-10">
-            <h1 className="font-mono font-extrabold text-8xl mx-16 text-darkk ">
+            <h1 className="font-mono font-extrabold text-8xl mx-16 text-darkk">
               Stay <br /> Curious <br />
             </h1>
             <p className="max-w-[500px] font-mono leading-6 text-justify text-black text-base mx-16 mt-10">
@@ -28,7 +28,7 @@ function Home() {
             Start Writing
           </Button>
         </div>
-        <div className="h-3 bg-white" />
+        <div className="h-2 bg-white" />
         <div className="m-3">
           <FeaturedCard />
         </div>
