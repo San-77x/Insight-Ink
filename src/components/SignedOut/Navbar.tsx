@@ -12,7 +12,7 @@ import {
 import { Menu } from "lucide-react";
 import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 
-export function Navbar() {
+export function NavbarOut() {
   return (
     <>
       <div className="w-full bg-darkk">

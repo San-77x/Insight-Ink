@@ -1,6 +1,5 @@
-import * as React from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/SignedIn/Navbar";
+import { NavbarIn } from "@/components/SignedIn/Navbar";
 
 export const Route = createLazyFileRoute("/_layout/signedin")({
   component: SignIn,
@@ -9,7 +8,7 @@ export const Route = createLazyFileRoute("/_layout/signedin")({
 export function SignIn() {
   return (
     <>
-      <Navbar />
+      <NavbarIn />
     </>
   );
 }

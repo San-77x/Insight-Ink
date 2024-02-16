@@ -1,6 +1,5 @@
-import * as React from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/SignedOut/Navbar";
+import { NavbarOut } from "@/components/SignedOut/Navbar";
 
 export const Route = createLazyFileRoute("/_layout/signedout")({
   component: SignOut,
@@ -9,7 +8,7 @@ export const Route = createLazyFileRoute("/_layout/signedout")({
 export function SignOut() {
   return (
     <>
-      <Navbar />
+      <NavbarOut />
     </>
   );
 }

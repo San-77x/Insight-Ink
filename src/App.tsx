@@ -4,19 +4,21 @@ import {
   SignedIn,
   SignedOut,
   SignUpButton,
-  SignIn,
 } from "@clerk/clerk-react";
-import { Navbar } from "./components/SignedIn/Navbar";
 import Footer from "./components/Footer";
 import { redirect } from "@tanstack/react-router";
 import Home from "./routes/home";
+import { SignIn } from "./routes/_layout/signedin.lazy";
+import { SignOut } from "./routes/_layout/signedout.lazy";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <SignIn />
+      <SignOut />
       <main>
         <SignUpButton />
+
         <SignIn />
         <SignedOut>
           <Home />

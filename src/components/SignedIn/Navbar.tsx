@@ -13,13 +13,12 @@ import { Menu } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import {
   RedirectToUserProfile,
-  SignIn,
   SignInButton,
   SignOutButton,
   SignUpButton,
 } from "@clerk/clerk-react";
 
-export function Navbar() {
+export function NavbarIn() {
   return (
     <>
       <div className="w-full bg-darkk">
