@@ -16,7 +16,6 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   return (
     <div>
-      <Navbar />
       <main>
         <SignedOut>
           <Home />
@@ -27,7 +26,6 @@ function Index() {
       </main>
       <SignOutButton signOutCallback={() => redirect("/")} />
       <SignInButton />
-      <Footer />
     </div>
   );
 }

@@ -10,6 +10,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { SignInButton } from "@clerk/clerk-react";
 
 export function Navbar() {
   return (
@@ -48,13 +50,13 @@ export function Navbar() {
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
                 <NavigationMenuItem className="sm:space-x-2  md:space-x-3">
-                  {/* <Link href="/docs" legacyBehavior passHref> */}
-                  <NavigationMenuLink
-                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                  >
-                    Write Blog
-                  </NavigationMenuLink>
-                  {/* </Link> */}
+                  <Link to="/canvas">
+                    <NavigationMenuLink
+                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    >
+                      Write Blog
+                    </NavigationMenuLink>
+                  </Link>
                   <NavigationMenuLink
                     className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
@@ -63,7 +65,7 @@ export function Navbar() {
                   <NavigationMenuLink
                     className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
-                    Sign in
+                    <SignInButton />
                   </NavigationMenuLink>
                   <NavigationMenuLink
                     className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
