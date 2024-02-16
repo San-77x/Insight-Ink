@@ -6,6 +6,8 @@ import {
   SignedIn,
   SignOutButton,
   SignInButton,
+  SignIn,
+  SignUpButton,
 } from "@clerk/clerk-react";
 import { createLazyFileRoute, redirect } from "@tanstack/react-router";
 
@@ -17,6 +19,8 @@ function Index() {
   return (
     <div>
       <main>
+        <SignUpButton />
+        <SignIn />
         <SignedOut>
           <Home />
         </SignedOut>

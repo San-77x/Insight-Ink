@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignIn, SignInButton } from "@clerk/clerk-react";
 
 export function Navbar() {
   return (
