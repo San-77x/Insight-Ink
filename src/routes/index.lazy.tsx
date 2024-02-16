@@ -18,15 +18,12 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   return (
     <div>
-      <Navbar />
-      <main>
-        <SignUpButton />
-        <SignedIn>
-          <Home />
-        </SignedIn>
-        {/* <SignOutButton signOutCallback={redirect("/")} /> */}
-      </main>
-      <Footer />
+      <SignUpButton />
+      <SignOutButton />
+      <SignedIn>
+        <Home />
+      </SignedIn>
+      {/* <SignOutButton signOutCallback={redirect("/")} /> */}
     </div>
   );
 }

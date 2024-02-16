@@ -11,7 +11,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { SignIn, SignInButton } from "@clerk/clerk-react";
+import {
+  RedirectToUserProfile,
+  SignIn,
+  SignInButton,
+  SignOutButton,
+  SignUpButton,
+} from "@clerk/clerk-react";
 
 export function Navbar() {
   return (
@@ -28,18 +34,29 @@ export function Navbar() {
                   <NavigationMenuTrigger
                     className={`bg-litee hover:bg-litee mx-8 ${navigationMenuTriggerStyle()}`}
                   >
-                    <Menu />
+                    <button type="button" className="border-0">
+                      <Menu />
+                    </button>
                   </NavigationMenuTrigger>
 
                   <NavigationMenuContent>
                     <ul className="w-32  ">
-                      <ListItem title="Write Blog" />
+                      <button type="button">
+                        <Link to="/canvas">
+                          <ListItem title="Write Blog" />
+                        </Link>
+                      </button>
                       <ListItem title="Home" />
-                      <ListItem title="Profile" />
-                      <ListItem
-                        title="Logout"
-                        className="bg-red-500 hover:bg-red-600"
-                      />
+
+                      <RedirectToUserProfile>
+                        <ListItem title="Profile" />
+                      </RedirectToUserProfile>
+                      <SignOutButton>
+                        <ListItem
+                          title="Logout"
+                          className="bg-red-500 hover:bg-red-600"
+                        />
+                      </SignOutButton>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -62,16 +79,20 @@ export function Navbar() {
                   >
                     About Us
                   </NavigationMenuLink>
-                  <NavigationMenuLink
-                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                  >
-                    <SignInButton />
-                  </NavigationMenuLink>
-                  <NavigationMenuLink
-                    className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
-                  >
-                    Get Started
-                  </NavigationMenuLink>
+                  <SignInButton>
+                    <NavigationMenuLink
+                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    >
+                      Sign in
+                    </NavigationMenuLink>
+                  </SignInButton>
+                  <SignUpButton>
+                    <NavigationMenuLink
+                      className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                    >
+                      Get Started
+                    </NavigationMenuLink>
+                  </SignUpButton>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
