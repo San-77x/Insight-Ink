@@ -49,10 +49,27 @@ export function Navbar() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   {/* <Link href="/docs" legacyBehavior passHref> */}
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink
+                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                  >
                     Write Blog
                   </NavigationMenuLink>
                   {/* </Link> */}
+                  <NavigationMenuLink
+                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                  >
+                    About Us
+                  </NavigationMenuLink>
+                  <NavigationMenuLink
+                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                  >
+                    Sign in
+                  </NavigationMenuLink>
+                  <NavigationMenuLink
+                    className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                  >
+                    Get Started
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
