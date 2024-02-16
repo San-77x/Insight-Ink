@@ -45,9 +45,9 @@ export function Navbar() {
             </NavigationMenu>
           </div>
           <div>
-            <NavigationMenu>
+            <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
-                <NavigationMenuItem>
+                <NavigationMenuItem className="sm:space-x-2  md:space-x-3">
                   {/* <Link href="/docs" legacyBehavior passHref> */}
                   <NavigationMenuLink
                     className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
