@@ -1,15 +1,15 @@
 import Footer from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/SignedIn/Navbar";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { SignOut } from "./_layout/signedout.lazy";
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <Navbar />
+      <SignOut />
       <Outlet />
       <Footer />
-      <TanStackRouterDevtools />
     </>
   ),
 });

@@ -6,9 +6,10 @@ import {
   SignUpButton,
   SignIn,
 } from "@clerk/clerk-react";
-import Home from "./pages/Home";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/SignedIn/Navbar";
 import Footer from "./components/Footer";
+import { redirect } from "@tanstack/react-router";
+import Home from "./routes/home";
 
 function App() {
   return (
