@@ -27,7 +27,8 @@ export function Navbar() {
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
             InsightInk
           </h1>
-          <div className="sm:hidden">
+
+          <div id="MobileNav" className="sm:hidden">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -63,7 +64,8 @@ export function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <div>
+
+          <div id="MainNav">
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
                 <NavigationMenuItem className="sm:space-x-2  md:space-x-3">
