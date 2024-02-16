@@ -20,10 +20,6 @@ function Index() {
     <div>
       <main>
         <SignUpButton />
-        <SignIn />
-        <SignedOut>
-          <Home />
-        </SignedOut>
         <SignedIn>
           <Home />
         </SignedIn>
