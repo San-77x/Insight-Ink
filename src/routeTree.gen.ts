@@ -16,22 +16,10 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const SignedoutLazyImport = createFileRoute('/signedout')()
-const SignedinLazyImport = createFileRoute('/signedin')()
 const CanvasLazyImport = createFileRoute('/canvas')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
-
-const SignedoutLazyRoute = SignedoutLazyImport.update({
-  path: '/signedout',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/signedout.lazy').then((d) => d.Route))
-
-const SignedinLazyRoute = SignedinLazyImport.update({
-  path: '/signedin',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/signedin.lazy').then((d) => d.Route))
 
 const CanvasLazyRoute = CanvasLazyImport.update({
   path: '/canvas',
@@ -55,14 +43,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CanvasLazyImport
       parentRoute: typeof rootRoute
     }
-    '/signedin': {
-      preLoaderRoute: typeof SignedinLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/signedout': {
-      preLoaderRoute: typeof SignedoutLazyImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -71,8 +51,6 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   CanvasLazyRoute,
-  SignedinLazyRoute,
-  SignedoutLazyRoute,
 ])
 
 /* prettier-ignore-end */

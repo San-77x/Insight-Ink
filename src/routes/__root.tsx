@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import { createRootRoute, Link } from "@tanstack/react-router";
+import { createRootRoute } from "@tanstack/react-router";
 import { SignedIn, SignedOut, SignOutButton } from "@clerk/clerk-react";
 import HomeIn from "@/components/SignedIn/HomeIn";
 import { NavbarIn } from "@/components/SignedIn/NavbarIn";
