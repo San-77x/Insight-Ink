@@ -1,5 +1,6 @@
 import FeaturedCard from "@/components/FeaturedCard";
 import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 
 function Home() {
   return (
@@ -18,13 +19,15 @@ function Home() {
               those who dare to express, question, and explore."
             </p>
           </div>
-          <Button
-            variant={"destructive"}
-            className="bg-darkk text-litee mx-16 my-5 font-mono font-semibold px-12 py-5 hover:bg-darkk/80 "
-            size={"lg"}
-          >
-            Start Writing
-          </Button>
+          <Link to="/canvas" className="[&.active]:font-bold">
+            <Button
+              variant={"destructive"}
+              className="bg-darkk text-litee mx-16 my-5 font-mono font-semibold px-12 py-5 hover:bg-darkk/80 "
+              size={"lg"}
+            >
+              Start Writing
+            </Button>
+          </Link>
         </div>
         <div className="h-2 bg-white" />
         <div className="m-3">

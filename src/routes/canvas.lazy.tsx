@@ -1,7 +1,12 @@
+import { createLazyFileRoute } from "@tanstack/react-router";
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-export default function Canvas() {
+export const Route = createLazyFileRoute("/canvas")({
+  component: Canvas,
+});
+
+function Canvas() {
   return (
     <Editor
       apiKey="9up3sus9pfi6irjmqe37klb34vh2s7iddwao2gs6tih9wr9e"
