@@ -19,15 +19,14 @@ function HomeIn() {
               those who dare to express, question, and explore."
             </p>
           </div>
-          <Link to="/canvas" className="[&.active]:font-bold">
-            <Button
-              variant={"destructive"}
-              className="bg-darkk text-litee mx-16 my-5 font-mono font-semibold px-12 py-5 hover:bg-darkk/80  cursor-pointer"
-              size={"lg"}
-            >
-              Start Writing
-            </Button>
-          </Link>
+
+          <Button
+            variant={"destructive"}
+            className="bg-darkk text-litee mx-16 my-5 font-mono font-semibold px-12 py-5 hover:bg-darkk/80  cursor-pointer"
+            size={"lg"}
+          >
+            <Link to="/canvas">Start Writing</Link>
+          </Button>
         </div>
         <div className="h-2 bg-white" />
         <div className="m-3">

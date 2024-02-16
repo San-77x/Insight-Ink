@@ -13,45 +13,35 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as LayoutImport } from './routes/_layout'
 
 // Create Virtual Routes
 
+const SignedoutLazyImport = createFileRoute('/signedout')()
+const SignedinLazyImport = createFileRoute('/signedin')()
 const CanvasLazyImport = createFileRoute('/canvas')()
 const IndexLazyImport = createFileRoute('/')()
-const LayoutSignedoutLazyImport = createFileRoute('/_layout/signedout')()
-const LayoutSignedinLazyImport = createFileRoute('/_layout/signedin')()
 
 // Create/Update Routes
+
+const SignedoutLazyRoute = SignedoutLazyImport.update({
+  path: '/signedout',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/signedout.lazy').then((d) => d.Route))
+
+const SignedinLazyRoute = SignedinLazyImport.update({
+  path: '/signedin',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/signedin.lazy').then((d) => d.Route))
 
 const CanvasLazyRoute = CanvasLazyImport.update({
   path: '/canvas',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/canvas.lazy').then((d) => d.Route))
 
-const LayoutRoute = LayoutImport.update({
-  id: '/_layout',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
-
-const LayoutSignedoutLazyRoute = LayoutSignedoutLazyImport.update({
-  path: '/signedout',
-  getParentRoute: () => LayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_layout/signedout.lazy').then((d) => d.Route),
-)
-
-const LayoutSignedinLazyRoute = LayoutSignedinLazyImport.update({
-  path: '/signedin',
-  getParentRoute: () => LayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_layout/signedin.lazy').then((d) => d.Route),
-)
 
 // Populate the FileRoutesByPath interface
 
@@ -61,21 +51,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/_layout': {
-      preLoaderRoute: typeof LayoutImport
-      parentRoute: typeof rootRoute
-    }
     '/canvas': {
       preLoaderRoute: typeof CanvasLazyImport
       parentRoute: typeof rootRoute
     }
-    '/_layout/signedin': {
-      preLoaderRoute: typeof LayoutSignedinLazyImport
-      parentRoute: typeof LayoutImport
+    '/signedin': {
+      preLoaderRoute: typeof SignedinLazyImport
+      parentRoute: typeof rootRoute
     }
-    '/_layout/signedout': {
-      preLoaderRoute: typeof LayoutSignedoutLazyImport
-      parentRoute: typeof LayoutImport
+    '/signedout': {
+      preLoaderRoute: typeof SignedoutLazyImport
+      parentRoute: typeof rootRoute
     }
   }
 }
@@ -84,8 +70,9 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
-  LayoutRoute.addChildren([LayoutSignedinLazyRoute, LayoutSignedoutLazyRoute]),
   CanvasLazyRoute,
+  SignedinLazyRoute,
+  SignedoutLazyRoute,
 ])
 
 /* prettier-ignore-end */
