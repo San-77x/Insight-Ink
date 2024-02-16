@@ -1,4 +1,13 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import Footer from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import Home from "@/pages/Home";
+import {
+  SignedOut,
+  SignedIn,
+  SignOutButton,
+  SignInButton,
+} from "@clerk/clerk-react";
+import { createLazyFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -6,8 +15,19 @@ export const Route = createLazyFileRoute("/")({
 
 function Index() {
   return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
+    <div>
+      <Navbar />
+      <main>
+        <SignedOut>
+          <Home />
+        </SignedOut>
+        <SignedIn>
+          <Home />
+        </SignedIn>
+      </main>
+      <SignOutButton signOutCallback={() => redirect("/")} />
+      <SignInButton />
+      <Footer />
     </div>
   );
 }

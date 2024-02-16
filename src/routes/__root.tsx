@@ -1,11 +1,12 @@
 import Footer from "@/components/Footer";
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import { Navbar } from "@/components/Navbar";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <hr />
+      <Navbar />
       <Outlet />
       <Footer />
       <TanStackRouterDevtools />

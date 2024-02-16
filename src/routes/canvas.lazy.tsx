@@ -1,5 +1,4 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
 export const Route = createLazyFileRoute("/canvas")({
@@ -26,7 +25,7 @@ function Canvas() {
             Promise.reject("See docs to implement AI Assistant")
           ),
       }}
-      initialValue="Welcome to TinyMCE!"
+      initialValue=""
     />
   );
 }

@@ -6,6 +6,11 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./src/routes/*.{lazy.tsx, tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,lazy.tsx}",
+    "./index.html",
+    "./dist/assets/*.{js, jsx,ts, tsx}",
+    "./dist/index.html",
   ],
   prefix: "",
   theme: {
