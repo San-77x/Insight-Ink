@@ -10,15 +10,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
-import { Link } from "@tanstack/react-router";
-import {
-  RedirectToUserProfile,
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-} from "@clerk/clerk-react";
+import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 
-export function NavbarIn() {
+export function NavbarOut() {
   return (
     <>
       <div className="w-full bg-darkk">
@@ -26,7 +20,6 @@ export function NavbarIn() {
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
             InsightInk
           </h1>
-
           <div id="MobileNav" className="sm:hidden">
             <NavigationMenu>
               <NavigationMenuList>
@@ -41,22 +34,18 @@ export function NavbarIn() {
 
                   <NavigationMenuContent>
                     <ul className="w-32  ">
-                      <button type="button">
-                        <Link to="/canvas">
-                          <ListItem title="Write Blog" />
-                        </Link>
-                      </button>
-                      <ListItem title="Home" />
+                      <ListItem title="About" />
 
-                      <RedirectToUserProfile>
-                        <ListItem title="Profile" />
-                      </RedirectToUserProfile>
-                      <SignOutButton>
+                      <SignInButton>
+                        <ListItem title="Sign in" />
+                      </SignInButton>
+
+                      <SignUpButton>
                         <ListItem
-                          title="Logout"
+                          title="Get Started"
                           className="bg-red-500 hover:bg-red-600"
                         />
-                      </SignOutButton>
+                      </SignUpButton>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -67,19 +56,13 @@ export function NavbarIn() {
           <div id="MainNav">
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
-                <NavigationMenuItem className="sm:space-x-2  md:space-x-3">
-                  <Link to="/canvas">
-                    <NavigationMenuLink
-                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                    >
-                      Write Blog
-                    </NavigationMenuLink>
-                  </Link>
+                <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
                   <NavigationMenuLink
                     className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
                     About Us
                   </NavigationMenuLink>
+
                   <SignInButton>
                     <NavigationMenuLink
                       className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
@@ -87,6 +70,7 @@ export function NavbarIn() {
                       Sign in
                     </NavigationMenuLink>
                   </SignInButton>
+
                   <SignUpButton>
                     <NavigationMenuLink
                       className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}

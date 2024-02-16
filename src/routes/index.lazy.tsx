@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import { Navbar } from "@/components/SignedIn/Navbar";
+import { Navbar } from "@/components/SignedIn/NavbarIn";
 import {
   SignedOut,
   SignedIn,

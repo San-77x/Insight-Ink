@@ -10,9 +10,16 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
-import { SignInButton, SignUpButton } from "@clerk/clerk-react";
+import { Link } from "@tanstack/react-router";
+import {
+  RedirectToUserProfile,
+  SignInButton,
+  SignOutButton,
+  SignUpButton,
+  UserProfile,
+} from "@clerk/clerk-react";
 
-export function NavbarOut() {
+export function NavbarIn() {
   return (
     <>
       <div className="w-full bg-darkk">
@@ -20,6 +27,7 @@ export function NavbarOut() {
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
             InsightInk
           </h1>
+
           <div id="MobileNav" className="sm:hidden">
             <NavigationMenu>
               <NavigationMenuList>
@@ -34,18 +42,24 @@ export function NavbarOut() {
 
                   <NavigationMenuContent>
                     <ul className="w-32  ">
-                      <ListItem title="About" />
+                      <button type="button">
+                        <Link to="/canvas">
+                          <ListItem title="Write Blog" />
+                        </Link>
+                      </button>
 
-                      <SignInButton>
-                        <ListItem title="Sign in" />
-                      </SignInButton>
+                      <ListItem title="Home" />
 
-                      <SignUpButton>
+                      <RedirectToUserProfile>
+                        <ListItem title="Profile" />
+                      </RedirectToUserProfile>
+
+                      <SignOutButton>
                         <ListItem
-                          title="Get Started"
+                          title="Logout"
                           className="bg-red-500 hover:bg-red-600"
                         />
-                      </SignUpButton>
+                      </SignOutButton>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -56,28 +70,26 @@ export function NavbarOut() {
           <div id="MainNav">
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
-                <NavigationMenuItem className="sm:space-x-2  md:space-x-3">
+                <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
+                  <Link to="/canvas">
+                    <NavigationMenuLink
+                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    >
+                      Write Blog
+                    </NavigationMenuLink>
+                  </Link>
+
                   <NavigationMenuLink
                     className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
                     About Us
                   </NavigationMenuLink>
 
-                  <SignInButton>
-                    <NavigationMenuLink
-                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                    >
-                      Sign in
-                    </NavigationMenuLink>
-                  </SignInButton>
-
-                  <SignUpButton>
-                    <NavigationMenuLink
-                      className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
-                    >
-                      Get Started
-                    </NavigationMenuLink>
-                  </SignUpButton>
+                  <NavigationMenuLink
+                    className={`bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                  >
+                    Profile
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
