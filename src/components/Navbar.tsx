@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <>
       <div className="w-full bg-darkk">
-        <div className="h-[100px] flex items-center justify-between max-w-[1400px] mx-auto">
+        <div className="h-[100px] flex items-center justify-between max-w-[1200px] mx-auto">
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
             InsightInk
           </h1>
@@ -40,6 +40,19 @@ export function Navbar() {
                       />
                     </ul>
                   </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+          <div>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  {/* <Link href="/docs" legacyBehavior passHref> */}
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Write Blog
+                  </NavigationMenuLink>
+                  {/* </Link> */}
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
