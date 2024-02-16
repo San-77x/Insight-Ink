@@ -1,7 +1,6 @@
 import FeaturedCard from "@/components/FeaturedCard";
 import { Button } from "@/components/ui/button";
 import { SignUpButton } from "@clerk/clerk-react";
-import { Link } from "@tanstack/react-router";
 
 function HomeOut() {
   return (
