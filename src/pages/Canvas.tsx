@@ -1,108 +1,27 @@
-import { Navbar } from "@/components/Navbar";
-import {
-  ALargeSmall,
-  AlignCenter,
-  AlignJustify,
-  AlignLeft,
-  AlignRight,
-  Bold,
-  ImagePlus,
-  Italic,
-  Link,
-  List,
-  ListOrdered,
-  Quote,
-  Redo,
-  RemoveFormatting,
-  Smile,
-  Strikethrough,
-  Type,
-  Underline,
-  Undo,
-} from "lucide-react";
-function Canvas() {
+import React from "react";
+import { Editor } from "@tinymce/tinymce-react";
+
+export default function Canvas() {
   return (
-    <div className="bg-gray-400 h-screen ">
-      <div>
-        <div>
-          <div className="">
-            <input
-              className="bg-gray-300 w-full h-16 rounded-md mt-4 max-w-[800px] flex  mx-auto p-5 mb-5"
-              type="text"
-              name="title"
-              placeholder="Title"
-            />
-            <div>
-              <ul className="flex  bg-white p-2 mx-auto text-sm font-medium rounded-lg shadow-md">
-                <div className="flex px-2 border-x  ">
-                  <li>
-                    <Undo />
-                  </li>
-                  <li>
-                    <Redo />
-                  </li>
-                </div>
-                <div className="flex px-2 border-r  ">
-                  <li>
-                    <Type />
-                  </li>
-                  <li>
-                    <ALargeSmall />
-                  </li>
-                  <li>Normal</li>
-                </div>
-                <li>
-                  <Bold />
-                </li>
-                <li>
-                  <Italic />
-                </li>
-                <li>
-                  <Underline />
-                </li>
-                <li>
-                  <Strikethrough />
-                </li>
-                <li>
-                  <Link />
-                </li>
-                <li>
-                  <ImagePlus />
-                </li>
-                <li>
-                  <Smile />
-                </li>
-                <li>
-                  <AlignLeft />
-                </li>
-                <li>
-                  <AlignCenter />
-                </li>
-                <li>
-                  <AlignRight />
-                </li>
-                <li>
-                  <AlignJustify />
-                </li>
-                <li>
-                  <List />
-                </li>
-                <li>
-                  <ListOrdered />
-                </li>
-                <li>
-                  <Quote />
-                </li>
-                <li>
-                  <RemoveFormatting />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Editor
+      apiKey="9up3sus9pfi6irjmqe37klb34vh2s7iddwao2gs6tih9wr9e"
+      init={{
+        plugins:
+          "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
+        toolbar:
+          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
+        mergetags_list: [
+          { value: "First.Name", title: "First Name" },
+          { value: "Email", title: "Email" },
+        ],
+        ai_request: (request, respondWith) =>
+          respondWith.string(() =>
+            Promise.reject("See docs to implement AI Assistant")
+          ),
+      }}
+      initialValue="Welcome to TinyMCE!"
+    />
   );
 }
-
-export default Canvas;
