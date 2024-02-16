@@ -1,6 +1,11 @@
+import { createFileRoute } from "@tanstack/react-router";
 import FeaturedCard from "@/components/FeaturedCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/home")({
+  component: Home,
+});
 
 function Home() {
   return (
