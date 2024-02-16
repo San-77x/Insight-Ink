@@ -35,7 +35,7 @@ export function NavbarIn() {
 
                   <NavigationMenuContent>
                     <ul className="w-32 cursor-pointer ">
-                      <Link to="/canvas">
+                      <Link to="/canvas2">
                         <ListItem title="Write Blog" />
                       </Link>
 

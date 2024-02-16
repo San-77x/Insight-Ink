@@ -1,10 +1,10 @@
 import Footer from "@/components/Footer";
 import { createRootRoute } from "@tanstack/react-router";
 import { SignedIn, SignedOut, SignOutButton } from "@clerk/clerk-react";
-import HomeIn from "@/components/SignedIn/HomeIn";
-import { NavbarIn } from "@/components/SignedIn/NavbarIn";
-import HomeOut from "@/components/SignedOut/HomeOut";
-import { NavbarOut } from "@/components/SignedOut/NavbarOut";
+import HomeIn from "@/components/HomeIn";
+import { NavbarIn } from "@/components/NavbarIn";
+import HomeOut from "@/components/HomeOut";
+import { NavbarOut } from "@/components/NavbarOut";
 
 export const Route = createRootRoute({
   component: () => (
