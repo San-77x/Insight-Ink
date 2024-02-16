@@ -27,23 +27,23 @@ export function NavbarOut() {
                   <NavigationMenuTrigger
                     className={`bg-litee hover:bg-litee mx-8 ${navigationMenuTriggerStyle()}`}
                   >
-                    <button type="button" className="border-0">
+                    <button type="button" className="border-0 cursor-pointer">
                       <Menu />
                     </button>
                   </NavigationMenuTrigger>
 
                   <NavigationMenuContent>
-                    <ul className="w-32  ">
+                    <ul className="w-32 cursor-pointer ">
                       <ListItem title="About" />
 
                       <SignInButton>
-                        <ListItem title="Sign in" />
+                        <ListItem className="cursor-pointer" title="Sign in" />
                       </SignInButton>
 
                       <SignUpButton>
                         <ListItem
                           title="Get Started"
-                          className="bg-red-500 hover:bg-red-600"
+                          className="bg-red-500 hover:bg-red-600 cursor-pointer"
                         />
                       </SignUpButton>
                     </ul>
@@ -58,14 +58,14 @@ export function NavbarOut() {
               <NavigationMenuList>
                 <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
                   <NavigationMenuLink
-                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
                     About Us
                   </NavigationMenuLink>
 
                   <SignInButton>
                     <NavigationMenuLink
-                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                      className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                     >
                       Sign in
                     </NavigationMenuLink>
@@ -73,7 +73,7 @@ export function NavbarOut() {
 
                   <SignUpButton>
                     <NavigationMenuLink
-                      className={`bg-litee rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                      className={`bg-litee cursor-pointer rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                     >
                       Get Started
                     </NavigationMenuLink>

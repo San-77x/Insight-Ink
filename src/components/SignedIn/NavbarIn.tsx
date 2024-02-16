@@ -11,13 +11,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import {
-  RedirectToUserProfile,
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  UserProfile,
-} from "@clerk/clerk-react";
 
 export function NavbarIn() {
   return (
@@ -35,31 +28,24 @@ export function NavbarIn() {
                   <NavigationMenuTrigger
                     className={`bg-litee hover:bg-litee mx-8 ${navigationMenuTriggerStyle()}`}
                   >
-                    <button type="button" className="border-0">
+                    <button type="button" className="border-0 cursor-pointer">
                       <Menu />
                     </button>
                   </NavigationMenuTrigger>
 
                   <NavigationMenuContent>
-                    <ul className="w-32  ">
-                      <button type="button">
-                        <Link to="/canvas">
-                          <ListItem title="Write Blog" />
-                        </Link>
-                      </button>
+                    <ul className="w-32 cursor-pointer ">
+                      <Link to="/canvas">
+                        <ListItem title="Write Blog" />
+                      </Link>
 
-                      <ListItem title="Home" />
+                      <ListItem className="cursor-pointer" title="About" />
+                      <ListItem className="cursor-pointer" title="Profile" />
 
-                      <RedirectToUserProfile>
-                        <ListItem title="Profile" />
-                      </RedirectToUserProfile>
-
-                      <SignOutButton>
-                        <ListItem
-                          title="Logout"
-                          className="bg-red-500 hover:bg-red-600"
-                        />
-                      </SignOutButton>
+                      <ListItem
+                        title="Logout"
+                        className="bg-red-500 hover:bg-red-600 cursor-pointer"
+                      />
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -73,20 +59,20 @@ export function NavbarIn() {
                 <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
                   <Link to="/canvas">
                     <NavigationMenuLink
-                      className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                      className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                     >
                       Write Blog
                     </NavigationMenuLink>
                   </Link>
 
                   <NavigationMenuLink
-                    className={` text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
                     About Us
                   </NavigationMenuLink>
 
                   <NavigationMenuLink
-                    className={`bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                    className={`cursor-pointer bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                   >
                     Profile
                   </NavigationMenuLink>

@@ -13,7 +13,6 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as HomeImport } from './routes/home'
 import { Route as LayoutImport } from './routes/_layout'
 
 // Create Virtual Routes
@@ -29,11 +28,6 @@ const CanvasLazyRoute = CanvasLazyImport.update({
   path: '/canvas',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/canvas.lazy').then((d) => d.Route))
-
-const HomeRoute = HomeImport.update({
-  path: '/home',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const LayoutRoute = LayoutImport.update({
   id: '/_layout',
@@ -71,10 +65,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
-    '/home': {
-      preLoaderRoute: typeof HomeImport
-      parentRoute: typeof rootRoute
-    }
     '/canvas': {
       preLoaderRoute: typeof CanvasLazyImport
       parentRoute: typeof rootRoute
@@ -95,7 +85,6 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   LayoutRoute.addChildren([LayoutSignedinLazyRoute, LayoutSignedoutLazyRoute]),
-  HomeRoute,
   CanvasLazyRoute,
 ])
 

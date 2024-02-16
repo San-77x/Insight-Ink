@@ -1,13 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import FeaturedCard from "@/components/FeaturedCard";
 import { Button } from "@/components/ui/button";
+import { SignUpButton } from "@clerk/clerk-react";
 import { Link } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/home")({
-  component: Home,
-});
-
-function Home() {
+function HomeOut() {
   return (
     <>
       <div className="mt-2 bg-litee">
@@ -24,15 +20,15 @@ function Home() {
               those who dare to express, question, and explore."
             </p>
           </div>
-          <Link to="/canvas" className="[&.active]:font-bold">
+          <SignUpButton>
             <Button
               variant={"destructive"}
-              className="bg-darkk text-litee mx-16 my-5 font-mono font-semibold px-12 py-5 hover:bg-darkk/80 "
+              className="bg-darkk text-litee mx-16 my-5 font-mono font-semibold px-12 py-5 hover:bg-darkk/80 cursor-pointer "
               size={"lg"}
             >
-              Start Writing
+              Start Exploring
             </Button>
-          </Link>
+          </SignUpButton>
         </div>
         <div className="h-2 bg-white" />
         <div className="m-3">
@@ -43,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeOut;
