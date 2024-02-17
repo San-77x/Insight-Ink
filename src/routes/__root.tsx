@@ -8,14 +8,16 @@ import { NavbarOut } from "@/components/NavbarOut";
 
 export const Route = createRootRoute({
   component: () => (
-    <div className="min-h-screen">
+    <div className="h-screen flex flex-col">
       <SignedIn>
         <NavbarIn />
       </SignedIn>
       <SignedOut>
         <NavbarOut />
       </SignedOut>
-      <Outlet />
+      <div className="grow">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   ),

@@ -1,3 +1,4 @@
+import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
 import {
   Link,
@@ -13,15 +14,8 @@ export const Route = createLazyFileRoute("/canvas")({
 });
 
 function Canvas() {
-  const navigate = useNavigate();
-
   const handleClick = () => {
-    const isConfirmed = window.confirm("Are you sure?");
-    if (isConfirmed) {
-      console.log("User Confirmed the action");
-    } else {
-      console.log("User Cancelled the action");
-    }
+    <Alert button={""} title={""} description={""} />;
   };
   return (
     <div className="mx-auto max-w-[1680px]">
@@ -44,7 +38,7 @@ function Canvas() {
         <input
           type="text"
           placeholder="Title"
-          className="w-full h-full outline-none text-3xl font-semibold "
+          className="w-full h-full outline-none text-3xl font-semibold font-serif "
         />
       </div>
       <div className="mx-4">

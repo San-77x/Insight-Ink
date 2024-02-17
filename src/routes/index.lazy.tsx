@@ -12,7 +12,6 @@ function Index() {
     <div className="min-h-screen">
       <SignedIn>
         <HomeIn />
-        <SignOutButton />
       </SignedIn>
       <SignedOut>
         <HomeOut />
