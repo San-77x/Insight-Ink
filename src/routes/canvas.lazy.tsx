@@ -42,7 +42,7 @@ function Canvas() {
           </Button>
         </Alert>
       </div>
-      <div className="border-2 my-8 lg:mx-32 rounded-lg p-6 mx-4">
+      <div className="border-2 mt-8 mb-2 rounded-lg p-6 mx-4">
         <input
           type="text"
           placeholder="Title"
