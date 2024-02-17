@@ -19,13 +19,8 @@ function Canvas() {
     const isConfirmed = window.confirm("Are you sure?");
     if (isConfirmed) {
       console.log("User Confirmed the action");
-      <Navigate to="/" />;
-
-      // User clicked "OK", navigate to the home page
-      navigate("/");
     } else {
-      // User clicked "Cancel", do nothing and stay on the current page
-      console.log("User cancelled the action");
+      console.log("User Cancelled the action");
     }
   };
   return (
