@@ -14,9 +14,7 @@ export const Route = createLazyFileRoute("/canvas")({
 });
 
 function Canvas() {
-  const handleClick = () => {
-    <Alert button={""} title={""} description={""} />;
-  };
+  const handleClick = () => {};
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
@@ -27,6 +25,12 @@ function Canvas() {
         >
           Cancel
         </Button>
+        <Alert
+          title={"Are you sure?"}
+          description={"This may cause clear your writings"}
+        >
+          Cancelll
+        </Alert>
         <Button
           variant={"destructive"}
           className="rounded-md bg-green-500 hover:bg-green-700 px-8"
