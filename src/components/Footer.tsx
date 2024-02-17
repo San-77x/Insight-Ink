@@ -2,7 +2,7 @@ import { Facebook, Instagram, Twitter, Github, Dribbble } from "lucide-react";
 
 function Footer() {
   return (
-    <div className="  py-8 border-t bg-lime-300 ">
+    <div className="  py-8 border-t bg-lime-300 mt-16">
       <div className="text-center">
         <a
           href="/"
