@@ -29,10 +29,7 @@ function HomeIn() {
             </Button>
           </Link>
         </div>
-        <div className="h-2 bg-white" />
-        <div className="m-3">
-          <FeaturedCard />
-        </div>
+        <FeaturedCard />
       </div>
     </>
   );

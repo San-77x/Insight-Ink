@@ -3,7 +3,7 @@ import Card from "./Card";
 
 function FeaturedCard() {
   return (
-    <div>
+    <div className="bg-white">
       <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
         <div className="border-b border-darkk mb-5 flex justify-between text-sm">
           <div className="text-darkk flex items-center pb-2 pr-2 border-b-2 border-black uppercase">

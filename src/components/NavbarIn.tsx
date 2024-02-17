@@ -84,6 +84,14 @@ export function NavbarIn() {
                     About Us
                   </NavigationMenuLink>
 
+                  <SignOutButton>
+                    <NavigationMenuLink
+                      className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    >
+                      Sign out
+                    </NavigationMenuLink>
+                  </SignOutButton>
+
                   <NavigationMenuLink
                     className={`cursor-pointer bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                   >
