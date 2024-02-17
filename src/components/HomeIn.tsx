@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 function HomeIn() {
   return (
     <>
-      <div className="mt-2 bg-litee">
+      <div className="bg-litee">
         <div className=" py-[80px] bg-litee max-w-[1200px] mx-auto">
           <div className="max-w-[1200px] h-full  mx-auto lg:flex lg:justify-between md:items-center pb-10">
             <h1 className="font-mono font-extrabold text-8xl mx-16 text-darkk">

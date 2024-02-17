@@ -8,10 +8,22 @@ function Footer() {
           href="/"
           className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          <h1 className="h-12 mr-3 sm:h-9 mx-8 font-mono  text-4xl font-extrabold text-darkk ">
+          <h1 className="font-mono text-4xl font-extrabold text-darkk ">
             InsightInk
           </h1>
         </a>
+        <p className="text-sm mb-8 -mt-5 font-mono font-semibold">
+          An{" "}
+          <span>
+            <a
+              className="text-red-700 hover:text-red-500"
+              href="https://bento.me/san-77x"
+            >
+              @San.77x
+            </a>
+          </span>{" "}
+          Project.
+        </p>
 
         <ul className="flex justify-center my-5 space-x-5">
           <li>
