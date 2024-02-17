@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Link, createLazyFileRoute } from "@tanstack/react-router";
+import {
+  Link,
+  Navigate,
+  createLazyFileRoute,
+  redirect,
+  useNavigate,
+} from "@tanstack/react-router";
 import { Editor } from "@tinymce/tinymce-react";
 
 export const Route = createLazyFileRoute("/canvas")({
@@ -7,21 +13,31 @@ export const Route = createLazyFileRoute("/canvas")({
 });
 
 function Canvas() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    alert("You lost everything");
+    const isConfirmed = window.confirm("Are you sure?");
+    if (isConfirmed) {
+      console.log("User Confirmed the action");
+      <Navigate to="/" />;
+
+      // User clicked "OK", navigate to the home page
+      navigate("/");
+    } else {
+      // User clicked "Cancel", do nothing and stay on the current page
+      console.log("User cancelled the action");
+    }
   };
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
-        <Link to="/">
-          <Button
-            onClick={handleClick}
-            variant={"destructive"}
-            className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
-          >
-            Cancel
-          </Button>
-        </Link>
+        <Button
+          onClick={handleClick}
+          variant={"destructive"}
+          className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
+        >
+          Cancel
+        </Button>
         <Button
           variant={"destructive"}
           className="rounded-md bg-green-500 hover:bg-green-700 px-8"
