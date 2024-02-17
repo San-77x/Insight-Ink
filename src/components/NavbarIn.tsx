@@ -26,7 +26,7 @@ export function NavbarIn() {
   };
   return (
     <>
-      <div className="w-full bg-darkk">
+      <div className="w-full bg-darkk mb-6">
         <div className="h-[100px] flex items-center justify-between max-w-[1200px] mx-auto">
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
             InsightInk

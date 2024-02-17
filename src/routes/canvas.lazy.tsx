@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Editor } from "@tinymce/tinymce-react";
 
@@ -8,11 +9,25 @@ export const Route = createLazyFileRoute("/canvas")({
 function Canvas() {
   return (
     <div className="mx-auto max-w-[1680px]">
-      <div className="h-16 border-2 my-8 lg:mx-32 rounded-lg">
+      <div className="flex justify-end my-4">
+        <Button
+          variant={"outline"}
+          className="rounded-md bg-red-500 hover:bg-red-700 mx-1"
+        >
+          Cancel
+        </Button>
+        <Button
+          variant={"destructive"}
+          className="rounded-md bg-green-500 hover:bg-green-700 mx-1"
+        >
+          Publish
+        </Button>
+      </div>
+      <div className="border-2 my-8 lg:mx-32 rounded-lg p-6">
         <input
           type="text"
           placeholder="Title"
-          className="h-full w-full px-10 text-2xl"
+          className="w-full h-full outline-none text-3xl font-semibold "
         />
       </div>
       <div>
