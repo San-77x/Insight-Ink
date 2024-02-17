@@ -8,7 +8,7 @@ import { NavbarOut } from "@/components/NavbarOut";
 
 export const Route = createRootRoute({
   component: () => (
-    <>
+    <div className="min-h-screen">
       <SignedIn>
         <NavbarIn />
       </SignedIn>
@@ -17,6 +17,6 @@ export const Route = createRootRoute({
       </SignedOut>
       <Outlet />
       <Footer />
-    </>
+    </div>
   ),
 });
