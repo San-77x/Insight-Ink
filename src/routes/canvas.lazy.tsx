@@ -9,28 +9,28 @@ export const Route = createLazyFileRoute("/canvas")({
 function Canvas() {
   return (
     <div className="mx-auto max-w-[1680px]">
-      <div className="flex justify-end my-4">
+      <div className="flex justify-end my-4 mx-4">
         <Button
-          variant={"outline"}
-          className="rounded-md bg-red-500 hover:bg-red-700 mx-1"
+          variant={"destructive"}
+          className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
         >
           Cancel
         </Button>
         <Button
           variant={"destructive"}
-          className="rounded-md bg-green-500 hover:bg-green-700 mx-1"
+          className="rounded-md bg-green-500 hover:bg-green-700 px-8"
         >
           Publish
         </Button>
       </div>
-      <div className="border-2 my-8 lg:mx-32 rounded-lg p-6">
+      <div className="border-2 my-8 lg:mx-32 rounded-lg p-6 mx-4">
         <input
           type="text"
           placeholder="Title"
           className="w-full h-full outline-none text-3xl font-semibold "
         />
       </div>
-      <div>
+      <div className="mx-4">
         <Editor
           apiKey="9up3sus9pfi6irjmqe37klb34vh2s7iddwao2gs6tih9wr9e"
           init={{
