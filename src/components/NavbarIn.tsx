@@ -16,7 +16,6 @@ import {
   SignOutButton,
   UserProfile,
 } from "@clerk/clerk-react";
-import { UserProfileLink } from "node_modules/@clerk/clerk-react/dist/types/components/uiComponents";
 
 export function NavbarIn() {
   const handleClick = () => {
