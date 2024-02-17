@@ -13,7 +13,6 @@
 //       <Editor
 //         apiKey="9up3sus9pfi6irjmqe37klb34vh2s7iddwao2gs6tih9wr9e"
 //         onInit={(evt, editor) => (editorRef.current = editor)}
-//         initialValue="<p>This is the initial content of the editor.</p>"
 //         init={{
 //           height: 500,
 //           menubar: false,
@@ -47,7 +46,7 @@
 //         }}
 //       />
 //       <button type="button" onClick={log}>
-//         Log editor content
+//         Print
 //       </button>
 //     </>
 //   );

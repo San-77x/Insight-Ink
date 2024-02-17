@@ -1,19 +1,20 @@
+import { useRef } from "react";
+import { Editor } from "@tinymce/tinymce-react";
 import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
-import {
-  Link,
-  Navigate,
-  createLazyFileRoute,
-  redirect,
-  useNavigate,
-} from "@tanstack/react-router";
-import { Editor } from "@tinymce/tinymce-react";
+import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
 });
 
 function Canvas() {
+  const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
+  };
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
@@ -28,10 +29,10 @@ function Canvas() {
             Cancel
           </Button>
         </Alert>
-
         <Alert
           title={"Are you sure to upload this?"}
           description={"This will upload your writings into Insight Ink"}
+          data={log}
         >
           <Button
             variant={"destructive"}
@@ -51,23 +52,38 @@ function Canvas() {
       <div className="mx-4">
         <Editor
           apiKey="9up3sus9pfi6irjmqe37klb34vh2s7iddwao2gs6tih9wr9e"
+          onInit={(evt, editor) => (editorRef.current = editor)}
           init={{
-            plugins:
-              "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
-            toolbar:
-              "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-            tinycomments_mode: "embedded",
-            tinycomments_author: "Author name",
-            mergetags_list: [
-              { value: "First.Name", title: "First Name" },
-              { value: "Email", title: "Email" },
+            height: 500,
+            menubar: false,
+            plugins: [
+              "advlist",
+              "autolink",
+              "lists",
+              "link",
+              "image",
+              "charmap",
+              "preview",
+              "anchor",
+              "searchreplace",
+              "visualblocks",
+              "code",
+              "fullscreen",
+              "insertdatetime",
+              "media",
+              "table",
+              "code",
+              "help",
+              "wordcount",
             ],
-            ai_request: (request, respondWith) =>
-              respondWith.string(() =>
-                Promise.reject("See docs to implement AI Assistant")
-              ),
+            toolbar:
+              "undo redo | blocks | " +
+              "bold italic forecolor | alignleft aligncenter " +
+              "alignright alignjustify | bullist numlist outdent indent | " +
+              "removeformat | help",
+            content_style:
+              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
-          initialValue=""
         />
       </div>
     </div>
