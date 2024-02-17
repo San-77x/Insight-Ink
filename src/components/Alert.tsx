@@ -10,34 +10,33 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
+import { ReactElement } from "react";
 
 export function Alert({
-  button,
+  children,
   title,
   description,
 }: {
-  button: string;
+  children: ReactElement;
   title: string;
   description: string;
 }) {
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button
-          variant={"destructive"}
-          className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
-        >
-          {button}
-        </Button>
-      </AlertDialogTrigger>
+      <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{title}</AlertDialogTitle>
           <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel className="bg-litee hover:bg-slate-400">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction className="bg-red-500 hover:bg-red-700">
+            <Link to="/"> Continue</Link>
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

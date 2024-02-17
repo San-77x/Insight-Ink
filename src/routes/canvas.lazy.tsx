@@ -14,29 +14,32 @@ export const Route = createLazyFileRoute("/canvas")({
 });
 
 function Canvas() {
-  const handleClick = () => {};
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
-        <Button
-          onClick={handleClick}
-          variant={"destructive"}
-          className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
-        >
-          Cancel
-        </Button>
         <Alert
           title={"Are you sure?"}
           description={"This may cause clear your writings"}
         >
-          Cancelll
+          <Button
+            variant={"destructive"}
+            className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
+          >
+            Cancel
+          </Button>
         </Alert>
-        <Button
-          variant={"destructive"}
-          className="rounded-md bg-green-500 hover:bg-green-700 px-8"
+
+        <Alert
+          title={"Are you sure to upload this?"}
+          description={"This will upload your writings into Insight Ink"}
         >
-          Publish
-        </Button>
+          <Button
+            variant={"destructive"}
+            className="rounded-md bg-green-500 hover:bg-green-700 px-8"
+          >
+            Publish
+          </Button>
+        </Alert>
       </div>
       <div className="border-2 my-8 lg:mx-32 rounded-lg p-6 mx-4">
         <input
