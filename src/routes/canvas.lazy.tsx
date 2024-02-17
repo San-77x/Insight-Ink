@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { Link, createLazyFileRoute } from "@tanstack/react-router";
 import { Editor } from "@tinymce/tinymce-react";
 
 export const Route = createLazyFileRoute("/canvas")({
@@ -7,15 +7,21 @@ export const Route = createLazyFileRoute("/canvas")({
 });
 
 function Canvas() {
+  const handleClick = () => {
+    alert("You lost everything");
+  };
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
-        <Button
-          variant={"destructive"}
-          className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
-        >
-          Cancel
-        </Button>
+        <Link to="/">
+          <Button
+            onClick={handleClick}
+            variant={"destructive"}
+            className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
+          >
+            Cancel
+          </Button>
+        </Link>
         <Button
           variant={"destructive"}
           className="rounded-md bg-green-500 hover:bg-green-700 px-8"

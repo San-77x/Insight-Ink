@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { SignInButton, SignUpButton } from "@clerk/clerk-react";
+import { Link } from "@tanstack/react-router";
 
 export function NavbarOut() {
   return (
@@ -18,7 +19,7 @@ export function NavbarOut() {
       <div className="w-full bg-darkk mb-6">
         <div className="h-[100px] flex items-center justify-between max-w-[1200px] mx-auto">
           <h1 className="mx-8 font-mono  text-4xl font-extrabold text-litee">
-            InsightInk
+            <Link to="/">InsightInk</Link>
           </h1>
           <div id="MobileNav" className="sm:hidden">
             <NavigationMenu>
