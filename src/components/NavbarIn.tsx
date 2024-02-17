@@ -10,10 +10,20 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
-import { Link, Navigate } from "@tanstack/react-router";
-import { SignOutButton } from "@clerk/clerk-react";
+import { Link } from "@tanstack/react-router";
+import {
+  RedirectToUserProfile,
+  SignOutButton,
+  UserProfile,
+} from "@clerk/clerk-react";
+import { UserProfileLink } from "node_modules/@clerk/clerk-react/dist/types/components/uiComponents";
 
 export function NavbarIn() {
+  const handleClick = () => {
+    <RedirectToUserProfile />;
+    <UserProfile />;
+    console.log("heyyy");
+  };
   return (
     <>
       <div className="w-full bg-darkk">
@@ -40,7 +50,8 @@ export function NavbarIn() {
                         <ListItem title="Write Blog" />
                       </Link>
                       <ListItem title="About" />
-                      <ListItem title="Profile" />
+
+                      <ListItem onClick={handleClick} title="Profile" />
 
                       <SignOutButton>
                         <ListItem
