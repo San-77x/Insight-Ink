@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link, Navigate } from "@tanstack/react-router";
 
 export function NavbarIn() {
   return (
@@ -35,9 +35,7 @@ export function NavbarIn() {
 
                   <NavigationMenuContent>
                     <ul className="w-32 cursor-pointer ">
-                      <Link to="/canvas2">
-                        <ListItem title="Write Blog" />
-                      </Link>
+                      <ListItem title="">Write Blog</ListItem>
 
                       <ListItem className="cursor-pointer" title="About" />
                       <ListItem className="cursor-pointer" title="Profile" />
@@ -57,13 +55,12 @@ export function NavbarIn() {
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
                 <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
-                  <Link to="/canvas">
-                    <NavigationMenuLink
-                      className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                    >
-                      Write Blog
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                  >
+                    <Link to="/canvas" />
+                    Write Blog
+                  </NavigationMenuLink>
 
                   <NavigationMenuLink
                     className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}

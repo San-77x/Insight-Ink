@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import { createRootRoute } from "@tanstack/react-router";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { SignedIn, SignedOut, SignOutButton } from "@clerk/clerk-react";
 import HomeIn from "@/components/HomeIn";
 import { NavbarIn } from "@/components/NavbarIn";
@@ -11,13 +11,11 @@ export const Route = createRootRoute({
     <>
       <SignedIn>
         <NavbarIn />
-        <HomeIn />
-        <SignOutButton />
       </SignedIn>
       <SignedOut>
         <NavbarOut />
-        <HomeOut />
       </SignedOut>
+      <Outlet />
       <Footer />
     </>
   ),
