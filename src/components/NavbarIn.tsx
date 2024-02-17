@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { Link, Navigate } from "@tanstack/react-router";
+import { SignOutButton } from "@clerk/clerk-react";
 
 export function NavbarIn() {
   return (
@@ -26,7 +27,7 @@ export function NavbarIn() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
-                    className={`bg-litee hover:bg-litee mx-8 ${navigationMenuTriggerStyle()}`}
+                    className={`bg-white hover:bg-litee ${navigationMenuTriggerStyle()}`}
                   >
                     <button type="button" className="border-0 cursor-pointer">
                       <Menu />
@@ -35,15 +36,18 @@ export function NavbarIn() {
 
                   <NavigationMenuContent>
                     <ul className="w-32 cursor-pointer ">
-                      <ListItem title="">Write Blog</ListItem>
+                      <Link to="/canvas">
+                        <ListItem title="Write Blog" />
+                      </Link>
+                      <ListItem title="About" />
+                      <ListItem title="Profile" />
 
-                      <ListItem className="cursor-pointer" title="About" />
-                      <ListItem className="cursor-pointer" title="Profile" />
-
-                      <ListItem
-                        title="Logout"
-                        className="bg-red-500 hover:bg-red-600 cursor-pointer"
-                      />
+                      <SignOutButton>
+                        <ListItem
+                          title="Logout"
+                          className="bg-red-500 hover:bg-red-600 cursor-pointer"
+                        />
+                      </SignOutButton>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -55,12 +59,13 @@ export function NavbarIn() {
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
                 <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
-                  <NavigationMenuLink
-                    className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                  >
-                    <Link to="/canvas" />
-                    Write Blog
-                  </NavigationMenuLink>
+                  <Link to="/canvas">
+                    <NavigationMenuLink
+                      className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                    >
+                      Write Blog
+                    </NavigationMenuLink>
+                  </Link>
 
                   <NavigationMenuLink
                     className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
