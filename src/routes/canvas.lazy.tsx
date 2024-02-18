@@ -42,14 +42,15 @@ function Canvas() {
           </Button>
         </Alert>
       </div>
-      <div className="border-2 mt-8 mb-2 rounded-lg p-6 mx-4">
+
+      <div className="border-2 border-gray-100 mt-8 mb-2 rounded-lg mx-6">
         <input
           type="text"
-          placeholder="Title"
-          className="w-full h-full outline-none text-3xl font-semibold font-serif "
+          placeholder="Title here..."
+          className="p-4 outline-none text-2xl font-semibold font-serif "
         />
       </div>
-      <div className="mx-4">
+      <div className="mx-6">
         <Editor
           apiKey="9up3sus9pfi6irjmqe37klb34vh2s7iddwao2gs6tih9wr9e"
           onInit={(evt, editor) => (editorRef.current = editor)}
