@@ -10,10 +10,11 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
-import { SignInButton, SignUpButton } from "@clerk/clerk-react";
+import { SignInButton, SignUpButton, useClerk } from "@clerk/clerk-react";
 import { Link } from "@tanstack/react-router";
 
 export function NavbarOut() {
+  const clerk = useClerk();
   return (
     <>
       <div className="w-full bg-darkk mb-2">
@@ -72,13 +73,13 @@ export function NavbarOut() {
                     </NavigationMenuLink>
                   </SignInButton>
 
-                  <SignUpButton>
-                    <NavigationMenuLink
-                      className={`bg-litee cursor-pointer rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
-                    >
+                  <NavigationMenuLink
+                    className={`bg-litee cursor-pointer rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                  >
+                    <button type="button" onClick={() => clerk.openSignUp({})}>
                       Get Started
-                    </NavigationMenuLink>
-                  </SignUpButton>
+                    </button>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
