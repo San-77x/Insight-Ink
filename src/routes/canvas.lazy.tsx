@@ -27,11 +27,15 @@ export default function Canvas() {
         content: editorRef.current.getContent(),
         relativeDate: relativeDate,
       };
-
       const key = `post-${currentIndex}`;
-
-      localStorage.setItem(key, JSON.stringify(data));
+      localStorage.setItem("head", JSON.stringify(data.title));
+      localStorage.setItem("description", JSON.stringify(data.content));
+      localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
+      // console.log(data.title);
+      // console.log(data.content);
+      // console.log(data.relativeDate);
+      console.log(key);
     } else {
       alert("Title or content is missing.");
     }

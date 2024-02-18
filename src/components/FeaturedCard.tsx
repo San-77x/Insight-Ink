@@ -15,18 +15,9 @@ function FeaturedCard() {
           <div>See All</div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
-          {/* <Card
-            tag={"Blog"}
-            image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
-          />
-          <Card
-            tag={"Blog"}
-            image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
-          />
-          <Card
-            tag={"Blog"}
-            image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
-          /> */}
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </div>
