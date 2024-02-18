@@ -5,7 +5,6 @@ type prop = {
   tag: string;
   image: string;
   title: string;
-  description?: string;
   time?: string;
   comments?: string;
 };
@@ -13,14 +12,12 @@ function Card({
   tag,
   image,
   title,
-  description,
   time = "Not Avaialable",
   comments = "0 Comments",
 }: prop) {
-  const editorRef = useRef(null);
-  const content = JSON.parse(editorRef.current.getContent());
-  localStorage.getItem("editorContent");
-  console.log("log is working");
+  const showData = localStorage.getItem("editorContent");
+  console.log(JSON.parse(showData));
+
   return (
     <>
       <div className="rounded overflow-hidden shadow-lg flex flex-col h-[500px]">
@@ -38,7 +35,7 @@ function Card({
 
         <h3 className="font-semibold text-lg m-4 shrink-0">{title}</h3>
         <p className="text-gray-500 text-sm overflow-hidden grow mx-5">
-          {content}
+          {showData}
         </p>
         <Button
           size={"sm"}
