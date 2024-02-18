@@ -65,13 +65,13 @@ export function NavbarOut() {
                     About Us
                   </NavigationMenuLink>
 
-                  <SignInButton>
-                    <NavigationMenuLink
-                      className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
-                    >
+                  <NavigationMenuLink
+                    className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
+                  >
+                    <button type="button" onClick={() => clerk.openSignIn({})}>
                       Sign in
-                    </NavigationMenuLink>
-                  </SignInButton>
+                    </button>
+                  </NavigationMenuLink>
 
                   <NavigationMenuLink
                     className={`bg-litee cursor-pointer rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
