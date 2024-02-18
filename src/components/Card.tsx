@@ -15,8 +15,8 @@ function Card({
   time = "Not Avaialable",
   comments = "0 Comments",
 }: prop) {
-  const showData = localStorage.getItem("editorContent");
-  console.log(JSON.parse(showData));
+  const showData = localStorage.getItem(editorContent);
+  console.log(showData);
 
   return (
     <>
@@ -34,9 +34,11 @@ function Card({
         </div>
 
         <h3 className="font-semibold text-lg m-4 shrink-0">{title}</h3>
-        <p className="text-gray-500 text-sm overflow-hidden grow mx-5">
-          {showData}
-        </p>
+        <p
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+          dangerouslySetInnerHTML={{ __html: showData }}
+          className="text-gray-500 text-sm overflow-hidden grow mx-5"
+        />
         <Button
           size={"sm"}
           variant={"destructive"}
