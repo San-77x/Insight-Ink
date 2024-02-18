@@ -16,28 +16,21 @@ function FeaturedCard() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
           <Card
-            tag={"Gaming"}
-            image={
-              "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1265&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            }
+            tag={"Blog"}
+            image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
             title={"Black Keyboard RGB Mechanical"}
-            description={"Hello World"}
           />
           <Card
-            tag={"Technology"}
-            image={
-              "https://images.pexels.com/photos/6086/food-salad-healthy-vegetables.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            }
+            tag={"Blog"}
+            image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
             title={"Why to eat salad?"}
             description={
               "Published on October 2, 2018Canon, EOS 100DFree to use under the Unsplash License"
             }
           />
           <Card
-            tag={"Food"}
-            image={
-              "https://images.pexels.com/photos/1600727/pexels-photo-1600727.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            }
+            tag={"Blog"}
+            image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
             title={" Best FastFood Ideas (Yummy)"}
             description={
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry"

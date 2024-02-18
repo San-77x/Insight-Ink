@@ -12,7 +12,9 @@ export default function Canvas() {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
-      console.log(JSON.stringify(editorRef.current.getContent()));
+      const content = JSON.stringify(editorRef.current.getContent());
+      localStorage.setItem("editorContent", content);
+      console.log("Content saved to local storage.");
     }
   };
   return (
