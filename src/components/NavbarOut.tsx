@@ -38,16 +38,17 @@ export function NavbarOut() {
                     <ul className="w-32 cursor-pointer ">
                       <ListItem title="About" />
 
-                      <SignInButton>
-                        <ListItem className="cursor-pointer" title="Sign in" />
-                      </SignInButton>
+                      <ListItem
+                        onClick={() => clerk.openSignIn({})}
+                        className="cursor-pointer"
+                        title="Sign in"
+                      />
 
-                      <SignUpButton>
-                        <ListItem
-                          title="Get Started"
-                          className="bg-red-500 hover:bg-red-600 cursor-pointer"
-                        />
-                      </SignUpButton>
+                      <ListItem
+                        onClick={() => clerk.openSignUp({})}
+                        title="Get Started"
+                        className="bg-red-500 hover:bg-red-600 cursor-pointer"
+                      />
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -66,19 +67,17 @@ export function NavbarOut() {
                   </NavigationMenuLink>
 
                   <NavigationMenuLink
+                    onClick={() => clerk.openSignIn({})}
                     className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
                   >
-                    <button type="button" onClick={() => clerk.openSignIn({})}>
-                      Sign in
-                    </button>
+                    Sign in
                   </NavigationMenuLink>
 
                   <NavigationMenuLink
+                    onClick={() => clerk.openSignUp({})}
                     className={`bg-litee cursor-pointer rounded-full px-6 font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                   >
-                    <button type="button" onClick={() => clerk.openSignUp({})}>
-                      Get Started
-                    </button>
+                    Get Started
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
