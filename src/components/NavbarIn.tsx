@@ -9,7 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import {
   RedirectToUserProfile,
@@ -23,7 +23,7 @@ export function NavbarIn() {
   const clerk = useClerk();
   const { user } = useUser();
   const handleClick = () => {
-    console.log("heyyy");
+    clerk.openUserProfile();
   };
   return (
     <>
@@ -70,7 +70,7 @@ export function NavbarIn() {
           <div id="MainNav">
             <NavigationMenu className="hidden sm:flex">
               <NavigationMenuList>
-                <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8">
+                <NavigationMenuItem className="sm:space-x-2  md:space-x-3 mx-8 flex">
                   <Link to="/canvas">
                     <NavigationMenuLink
                       className={`cursor-pointer text-white font-mono font-semibold  ${navigationMenuTriggerStyle()}`}
@@ -97,7 +97,13 @@ export function NavbarIn() {
                     className={`cursor-pointer bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                     onClick={handleClick}
                   >
-                    {user?.username}
+                    <h4>{user?.username}</h4>
+                    <ChevronDown className="m-1" size={16} />
+                    <img
+                      src={user?.profileImageUrl}
+                      className="w-8 rounded-full ml-2"
+                      alt=""
+                    />
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
