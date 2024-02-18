@@ -47,7 +47,7 @@ function Canvas() {
         <input
           type="text"
           placeholder="Title here..."
-          className="p-4 outline-none text-2xl font-semibold font-serif "
+          className="p-4 outline-none text-2xl font-semibold font-serif tracking-wider "
         />
       </div>
       <div className="mx-6">
