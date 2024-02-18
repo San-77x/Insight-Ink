@@ -19,26 +19,20 @@ export default function Canvas() {
         localStorage.getItem("postIndex") || "0",
         10
       );
-      const now = moment(); // Get the current moment
-      const formattedDate = now.format("D MMM YYYY"); // "12 Feb 2022"
-      const relativeDate = now.fromNow(); // "a few seconds ago", "2 days ago", etc.
+      const now = moment();
+      const relativeDate = now.fromNow();
 
       const data = {
         title: title.current.value,
         content: editorRef.current.getContent(),
-        date: formattedDate,
         relativeDate: relativeDate,
       };
 
       const key = `post-${currentIndex}`;
 
-      // Save the post data to localStorage
       localStorage.setItem(key, JSON.stringify(data));
-
-      // Update the index for the next post
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
 
-      // Console log the saved data and key
       console.log("Title:", data.title);
       console.log("Content:", data.content);
       console.log("Date:", data.date);
@@ -50,51 +44,6 @@ export default function Canvas() {
       alert("Title or content is missing.");
     }
   };
-  // const saveData = () => {
-  //   for (index = 0; index < localStorage.length; ++index) {
-  //     let keyName = localStorage.key(index);
-  //     if (keyName.startsWith("canvas-")) {
-  //       localStorage.removeItem(keyName);
-  //     }
-  //   }
-  //   var data = JSON.stringify({
-  //     title: title.current?.value,
-  //     content: editorRef.current?.getContent(),
-  //   });
-  //   localStorage.setItem(`canvas-${Date.now()}`, data);
-  //   alert("保存成功");
-  // };
-  //   if (title.current?.value && editorRef.current) {
-  //     localStorage.setItem(
-  //       "content",
-  //       JSON.stringify([
-  //         {
-  //           title: title.current.value,
-  //           content: editorRef.current.getContent(),
-  //           date: new Date(),
-  //         },
-  //       ])
-  //     );
-  //     localStorage.setItem("date", Date());
-  //     localStorage.setItem("title", title.current.value);
-  //     localStorage.setItem(
-  //       "content",
-  //       JSON.stringify(editorRef.current.getContent())
-  //     );
-  //   } else {
-  //     alert("Data is not available");
-  //   }
-  // };
-
-  //   const content = editorRef.current?.getContent();
-  //   const inputTitle = title.current?.value();
-  //   const dataObject = {
-  //     title: inputTitle,
-  //     content: content,
-  //     dateUploaded: new Date().toISOString(),
-  //   };
-  //   localStorage.setItem("myData", JSON.stringify(dataObject));
-  // };
 
   return (
     <div className="mx-auto max-w-[1680px]">
