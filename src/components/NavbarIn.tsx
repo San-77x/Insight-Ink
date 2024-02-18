@@ -15,9 +15,11 @@ import {
   RedirectToUserProfile,
   SignOutButton,
   UserProfile,
+  useUser,
 } from "@clerk/clerk-react";
 
 export function NavbarIn() {
+  const { user } = useUser();
   const handleClick = () => {
     <RedirectToUserProfile />;
     <UserProfile />;
@@ -94,7 +96,7 @@ export function NavbarIn() {
                   <NavigationMenuLink
                     className={`cursor-pointer bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                   >
-                    Profile
+                    {user?.username}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
