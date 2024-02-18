@@ -15,10 +15,12 @@ import {
   RedirectToUserProfile,
   SignOutButton,
   UserProfile,
+  useClerk,
   useUser,
 } from "@clerk/clerk-react";
 
 export function NavbarIn() {
+  const clerk = useClerk();
   const { user } = useUser();
   const handleClick = () => {
     <RedirectToUserProfile />;
