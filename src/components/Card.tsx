@@ -15,7 +15,7 @@ function Card({
   time = "Not Avaialable",
   comments = "0 Comments",
 }: prop) {
-  const showData = localStorage.getItem(editorContent);
+  const showData = localStorage.getItem("editorContent");
   console.log(showData);
 
   return (
