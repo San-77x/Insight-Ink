@@ -27,11 +27,9 @@ export function NavbarOut() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
-                    className={`bg-litee hover:bg-litee mx-8 ${navigationMenuTriggerStyle()}`}
+                    className={`bg-white hover:bg-litee ${navigationMenuTriggerStyle()}`}
                   >
-                    <button type="button" className="border-0 cursor-pointer">
-                      <Menu />
-                    </button>
+                    <Menu />
                   </NavigationMenuTrigger>
 
                   <NavigationMenuContent>
