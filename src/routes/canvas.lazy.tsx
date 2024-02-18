@@ -3,20 +3,46 @@ import { Editor } from "@tinymce/tinymce-react";
 import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { log } from "console";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
 });
 
 export default function Canvas() {
+  const title = useRef<HTMLInputElement>(null);
   const editorRef = useRef(null);
-  const log = () => {
-    if (editorRef.current) {
-      const content = JSON.stringify(editorRef.current.getContent());
-      localStorage.setItem("editorContent", content);
-      console.log("Content saved to local storage.");
+  const saveData = () => {
+    if (title.current?.value && editorRef.current) {
+      localStorage.setItem(
+        "content",
+        JSON.stringify([
+          {
+            title: title.current.value,
+            content: editorRef.current.getContent(),
+          },
+        ])
+      );
+      localStorage.setItem("title", title.current.value);
+      localStorage.setItem(
+        "content",
+        JSON.stringify(editorRef.current.getContent())
+      );
+    } else {
+      alert("标题和内容都是必填的");
     }
   };
+
+  //   const content = editorRef.current?.getContent();
+  //   const inputTitle = title.current?.value();
+  //   const dataObject = {
+  //     title: inputTitle,
+  //     content: content,
+  //     dateUploaded: new Date().toISOString(),
+  //   };
+  //   localStorage.setItem("myData", JSON.stringify(dataObject));
+  // };
+
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
@@ -34,7 +60,7 @@ export default function Canvas() {
         <Alert
           title={"Are you sure to upload this?"}
           description={"This will upload your writings into Insight Ink"}
-          data={log}
+          data={saveData}
         >
           <Button
             variant={"destructive"}
@@ -47,6 +73,7 @@ export default function Canvas() {
 
       <div className="border-2 border-gray-100 mt-8 mb-2 rounded-lg mx-6">
         <input
+          ref={title}
           type="text"
           placeholder="Title here..."
           className="p-4 outline-none text-2xl font-semibold font-serif tracking-wider "

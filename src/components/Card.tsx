@@ -1,6 +1,5 @@
 import { Clock, MessageSquareText } from "lucide-react";
 import { Button } from "./ui/button";
-import { useRef } from "react";
 type prop = {
   tag?: string;
   image?: string;
@@ -15,8 +14,13 @@ function Card({
   time = "Not Avaialable",
   comments = "0 Comments",
 }: prop) {
-  const showData = localStorage.getItem("editorContent");
-  console.log(showData);
+  const head = localStorage.getItem("title");
+  console.log(title);
+  const content = localStorage.getItem("content") || "";
+  console.log(content);
+
+  // const showData = localStorage.getItem("myData");
+  // console.log(showData);
 
   return (
     <>
@@ -33,10 +37,10 @@ function Card({
           </div>
         </div>
 
-        <h3 className="font-semibold text-lg m-4 shrink-0">{title}</h3>
+        <h3 className="font-semibold text-lg m-4 shrink-0">{head}</h3>
         <p
           // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-          dangerouslySetInnerHTML={{ __html: showData }}
+          dangerouslySetInnerHTML={{ __html: content }}
           className="text-gray-500 text-sm overflow-hidden grow mx-5"
         />
         <Button

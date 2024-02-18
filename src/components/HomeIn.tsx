@@ -1,8 +1,6 @@
 import FeaturedCard from "@/components/FeaturedCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { Toaster } from "sonner";
-
 function HomeIn() {
   return (
     <>
