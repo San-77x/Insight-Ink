@@ -32,14 +32,6 @@ export default function Canvas() {
 
       localStorage.setItem(key, JSON.stringify(data));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
-
-      console.log("Title:", data.title);
-      console.log("Content:", data.content);
-      console.log("Date:", data.date);
-      console.log("Relative Date:", data.relativeDate);
-      console.log("Key:", key);
-
-      alert("Post saved successfully");
     } else {
       alert("Title or content is missing.");
     }
