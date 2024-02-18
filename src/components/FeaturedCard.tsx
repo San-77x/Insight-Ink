@@ -18,17 +18,14 @@ function FeaturedCard() {
           <Card
             tag={"Blog"}
             image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
-            title={"Black Keyboard RGB Mechanical"}
           />
           <Card
             tag={"Blog"}
             image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
-            title={"Why to eat salad?"}
           />
           <Card
             tag={"Blog"}
             image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
-            title={" Best FastFood Ideas (Yummy)"}
           />
         </div>
       </div>

@@ -3,7 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { log } from "console";
+import moment from "moment";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
@@ -12,26 +12,79 @@ export const Route = createLazyFileRoute("/canvas")({
 export default function Canvas() {
   const title = useRef<HTMLInputElement>(null);
   const editorRef = useRef(null);
+
   const saveData = () => {
     if (title.current?.value && editorRef.current) {
-      localStorage.setItem(
-        "content",
-        JSON.stringify([
-          {
-            title: title.current.value,
-            content: editorRef.current.getContent(),
-          },
-        ])
+      const currentIndex = parseInt(
+        localStorage.getItem("postIndex") || "0",
+        10
       );
-      localStorage.setItem("title", title.current.value);
-      localStorage.setItem(
-        "content",
-        JSON.stringify(editorRef.current.getContent())
-      );
+      const now = moment(); // Get the current moment
+      const formattedDate = now.format("D MMM YYYY"); // "12 Feb 2022"
+      const relativeDate = now.fromNow(); // "a few seconds ago", "2 days ago", etc.
+
+      const data = {
+        title: title.current.value,
+        content: editorRef.current.getContent(),
+        date: formattedDate,
+        relativeDate: relativeDate,
+      };
+
+      const key = `post-${currentIndex}`;
+
+      // Save the post data to localStorage
+      localStorage.setItem(key, JSON.stringify(data));
+
+      // Update the index for the next post
+      localStorage.setItem("postIndex", (currentIndex + 1).toString());
+
+      // Console log the saved data and key
+      console.log("Title:", data.title);
+      console.log("Content:", data.content);
+      console.log("Date:", data.date);
+      console.log("Relative Date:", data.relativeDate);
+      console.log("Key:", key);
+
+      alert("Post saved successfully");
     } else {
-      alert("标题和内容都是必填的");
+      alert("Title or content is missing.");
     }
   };
+  // const saveData = () => {
+  //   for (index = 0; index < localStorage.length; ++index) {
+  //     let keyName = localStorage.key(index);
+  //     if (keyName.startsWith("canvas-")) {
+  //       localStorage.removeItem(keyName);
+  //     }
+  //   }
+  //   var data = JSON.stringify({
+  //     title: title.current?.value,
+  //     content: editorRef.current?.getContent(),
+  //   });
+  //   localStorage.setItem(`canvas-${Date.now()}`, data);
+  //   alert("保存成功");
+  // };
+  //   if (title.current?.value && editorRef.current) {
+  //     localStorage.setItem(
+  //       "content",
+  //       JSON.stringify([
+  //         {
+  //           title: title.current.value,
+  //           content: editorRef.current.getContent(),
+  //           date: new Date(),
+  //         },
+  //       ])
+  //     );
+  //     localStorage.setItem("date", Date());
+  //     localStorage.setItem("title", title.current.value);
+  //     localStorage.setItem(
+  //       "content",
+  //       JSON.stringify(editorRef.current.getContent())
+  //     );
+  //   } else {
+  //     alert("Data is not available");
+  //   }
+  // };
 
   //   const content = editorRef.current?.getContent();
   //   const inputTitle = title.current?.value();

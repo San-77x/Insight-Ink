@@ -15,9 +15,8 @@ function Card({
   comments = "0 Comments",
 }: prop) {
   const head = localStorage.getItem("title");
-  console.log(title);
+  console.log(head);
   const content = localStorage.getItem("content") || "";
-  console.log(content);
 
   // const showData = localStorage.getItem("myData");
   // console.log(showData);
@@ -39,9 +38,9 @@ function Card({
 
         <h3 className="font-semibold text-lg m-4 shrink-0">{head}</h3>
         <p
+          className="text-gray-500 text-sm overflow-hidden grow mx-5"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{ __html: content }}
-          className="text-gray-500 text-sm overflow-hidden grow mx-5"
         />
         <Button
           size={"sm"}
