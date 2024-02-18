@@ -2,9 +2,9 @@ import { Clock, MessageSquareText } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRef } from "react";
 type prop = {
-  tag: string;
-  image: string;
-  title: string;
+  tag?: string;
+  image?: string;
+  title?: string;
   time?: string;
   comments?: string;
 };
