@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ReactElement } from "react";
+import { Toaster, toast } from "sonner";
 
 export function Alert({
   children,
@@ -36,11 +37,12 @@ export function Alert({
           <AlertDialogCancel className="bg-litee hover:bg-slate-400">
             Cancel
           </AlertDialogCancel>
+
           <AlertDialogAction
             onClick={data}
             className="bg-red-500 hover:bg-red-700"
           >
-            <Link to="/"> Continue</Link>
+            <Link to="/">Continue</Link>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
