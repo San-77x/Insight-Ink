@@ -20,10 +20,9 @@ import {
 } from "@clerk/clerk-react";
 
 export function NavbarIn() {
+  const clerk = useClerk();
   const { user } = useUser();
   const handleClick = () => {
-    <RedirectToUserProfile />;
-    <UserProfile />;
     console.log("heyyy");
   };
   return (
@@ -96,6 +95,7 @@ export function NavbarIn() {
 
                   <NavigationMenuLink
                     className={`cursor-pointer bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
+                    onClick={handleClick}
                   >
                     {user?.username}
                   </NavigationMenuLink>

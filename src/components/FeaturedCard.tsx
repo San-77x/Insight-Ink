@@ -24,17 +24,11 @@ function FeaturedCard() {
             tag={"Blog"}
             image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
             title={"Why to eat salad?"}
-            description={
-              "Published on October 2, 2018Canon, EOS 100DFree to use under the Unsplash License"
-            }
           />
           <Card
             tag={"Blog"}
             image={"https://i.ibb.co/FVdHNzX/imagenotfound.jpg"}
             title={" Best FastFood Ideas (Yummy)"}
-            description={
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
-            }
           />
         </div>
       </div>
