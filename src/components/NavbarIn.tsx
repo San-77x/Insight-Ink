@@ -97,7 +97,9 @@ export function NavbarIn() {
                     className={`cursor-pointer bg-litee rounded-full font-mono font-semibold ${navigationMenuTriggerStyle()}`}
                     onClick={handleClick}
                   >
-                    <h4>{user?.username}</h4>
+                    <h4 className="hidden md:block overflow-hidden w-14 lg:w-auto">
+                      {user?.username}
+                    </h4>
                     <ChevronDown className="m-1" size={16} />
                     <img
                       src={user?.profileImageUrl}
