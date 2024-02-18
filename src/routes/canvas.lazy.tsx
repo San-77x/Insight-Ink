@@ -8,11 +8,11 @@ export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
 });
 
-function Canvas() {
+export default function Canvas() {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      console.log(JSON.stringify(editorRef.current.getContent()));
     }
   };
   return (
