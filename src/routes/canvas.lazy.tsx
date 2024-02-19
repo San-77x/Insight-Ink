@@ -7,6 +7,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -46,16 +47,16 @@ export default function Canvas() {
         <Link to="/canvas" />
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Error</AlertTitle>
+          <AlertTitle>Missing field Found.</AlertTitle>
           <AlertDescription>
-            Your session has expired. Please log in again.
+            Fill all Field to upload on Insight-Ink.
           </AlertDescription>
         </Alert>
       </div>;
       console.log("Value missing");
     } else {
       console.log("Successfully Saved");
-      <Navigate to="/" replace={true} />;
+      <Link to="/" />;
       saveData;
     }
   };
@@ -169,14 +170,15 @@ export default function Canvas() {
                 <Input ref={tag} type="text" placeholder="Add a Suitable Tag" />
               </div>
             </div>
-
-            <Button
-              onClick={checkFields}
-              variant={"outline"}
-              className="bg-green-500 hover:bg-green-700"
-            >
-              Publish the Blog
-            </Button>
+            <DialogFooter>
+              <Button
+                onClick={checkFields}
+                variant={"outline"}
+                className="bg-green-500 hover:bg-green-700"
+              >
+                Publish the Blog
+              </Button>
+            </DialogFooter>
           </DialogContent>
         </Dialog>
       </div>
