@@ -1,14 +1,12 @@
 import { useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { Navigate, createLazyFileRoute } from "@tanstack/react-router";
 import moment from "moment";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -17,13 +15,50 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Link } from "@tanstack/react-router";
-import NotFoundAlert from "@/components/NotFoundAlert";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
 });
 
 export default function Canvas() {
+  const checkFields = () => {
+    if (
+      !title.current?.value ||
+      !content.current?.value ||
+      !tag.current?.value ||
+      !image.current?.value ||
+      !editorRef.current
+    ) {
+      <div>
+        <Link to="/canvas" />
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>
+            Your session has expired. Please log in again.
+          </AlertDescription>
+        </Alert>
+      </div>;
+      console.log("Value missing");
+    } else {
+      console.log("Successfully Saved");
+      <Navigate to="/" replace={true} />;
+      saveData;
+    }
+  };
   const title = useRef<HTMLInputElement>(null);
   const content = useRef<HTMLTextAreaElement>(null);
   const tag = useRef<HTMLInputElement>(null);
@@ -38,7 +73,6 @@ export default function Canvas() {
       image.current?.value &&
       editorRef.current
     ) {
-      <Link to="/" />;
       const currentIndex = parseInt(
         localStorage.getItem("postIndex") || "0",
         10
@@ -66,23 +100,39 @@ export default function Canvas() {
       localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
       console.log(key);
-    } else <NotFoundAlert />;
+    }
   };
 
   return (
     <div className="mx-auto max-w-[1680px]">
+      ;
       <div className="flex justify-end my-4 mx-4">
-        <Alert
-          title={"Are you sure?"}
-          description={"This may cause clear your writings"}
-        >
-          <Button
-            variant={"destructive"}
-            className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
-          >
-            Cancel
-          </Button>
-        </Alert>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button
+              variant={"destructive"}
+              className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
+            >
+              Close
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This may cause clear your writings
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel className="bg-litee hover:bg-slate-400">
+                Cancel
+              </AlertDialogCancel>
+              <AlertDialogAction className="bg-red-500 hover:bg-red-700">
+                <Link to="/"> Continue</Link>
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
 
         <Dialog>
           <DialogTrigger asChild>
@@ -90,15 +140,15 @@ export default function Canvas() {
               variant={"destructive"}
               className="rounded-md bg-green-500 hover:bg-green-700 px-8"
             >
-              Publish
+              Completed
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Add these fields to Publish</DialogTitle>
               <DialogDescription>
-                Add Description, Cover image, Tag. Click Publish when you're
-                done.
+                Add Description, Cover image, Approppriate tags and then Click
+                Publish.
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
@@ -119,20 +169,17 @@ export default function Canvas() {
                 <Input ref={tag} type="text" placeholder="Add a Suitable Tag" />
               </div>
             </div>
-            <DialogFooter>
-              <Alert
-                title={"Are you sure to upload this?"}
-                description={"This will upload your writings into Insight Ink"}
-              >
-                <Button onClick={saveData} variant={"outline"} type="submit">
-                  Publish the Blog
-                </Button>
-              </Alert>
-            </DialogFooter>
+
+            <Button
+              onClick={checkFields}
+              variant={"outline"}
+              className="bg-green-500 hover:bg-green-700"
+            >
+              Publish the Blog
+            </Button>
           </DialogContent>
         </Dialog>
       </div>
-
       <div className="border-2 border-gray-100 mt-8 mb-2 rounded-lg mx-6">
         <input
           ref={title}
