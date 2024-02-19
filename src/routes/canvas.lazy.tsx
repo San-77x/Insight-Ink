@@ -45,9 +45,6 @@ export default function Canvas() {
       localStorage.setItem("description", JSON.stringify(data.content));
       localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
-      // console.log(data.title);
-      // console.log(data.content);
-      // console.log(data.relativeDate);
       console.log(key);
     } else {
       alert("Title or content is missing.");
