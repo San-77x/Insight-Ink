@@ -2,15 +2,6 @@ import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Button } from "@/components/ui/button";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import moment from "moment";
 import {
   Dialog,
@@ -47,23 +38,15 @@ export default function Canvas() {
   const [showAlert, setShowAlert] = useState(false);
   const title = useRef<HTMLInputElement>(null);
   const content = useRef<HTMLTextAreaElement>(null);
+  const tag = useRef<HTMLInputElement>(null);
   const image = useRef<HTMLInputElement>(null);
   const editorRef = useRef<any>(null);
-  const [selectedTag, setTag] = useState<string>();
-
-  const convertToBase64 = (file: Blob): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-      reader.readAsDataURL(file);
-    });
 
   const checkFields = () => {
     if (
       !title.current?.value ||
       !content.current?.value ||
-      !selectedTag ||
+      !tag.current?.value ||
       !image.current?.value ||
       !editorRef.current?.getContent()
     ) {
@@ -75,17 +58,14 @@ export default function Canvas() {
     }
   };
 
-  const saveData = async () => {
+  const saveData = () => {
     if (
       title.current?.value &&
       content.current?.value &&
-      selectedTag &&
-      image.current?.files &&
+      tag.current?.value &&
+      image.current?.value &&
       editorRef.current?.getContent()
     ) {
-      window.location.href = "/";
-      const base64Image = await convertToBase64(image.current.files[0]);
-
       const currentIndex = parseInt(
         localStorage.getItem("postIndex") || "0",
         10
@@ -97,12 +77,10 @@ export default function Canvas() {
         story: editorRef.current.getContent(),
         title: title.current.value,
         content: content.current.value,
-        tag: selectedTag,
-        image: base64Image,
+        tag: tag.current.value,
+        image: image.current.value,
         relativeDate: relativeDate,
       };
-      console.log(data);
-
       const key = `post-${currentIndex}`;
       localStorage.setItem("story", JSON.stringify(data.story));
       localStorage.setItem("head", JSON.stringify(data.title));
@@ -112,6 +90,8 @@ export default function Canvas() {
       localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
       console.log(key);
+      // Redirect user after successful submission
+      window.location.href = "/"; // You can use React Router Link instead
     }
   };
 
@@ -124,7 +104,7 @@ export default function Canvas() {
               variant={"destructive"}
               className="rounded-md bg-red-500 hover:bg-red-700 mx-2"
             >
-              Clear
+              Close
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
@@ -151,7 +131,7 @@ export default function Canvas() {
               variant={"destructive"}
               className="rounded-md bg-green-500 hover:bg-green-700 px-8"
             >
-              Publish
+              Completed
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
@@ -167,6 +147,7 @@ export default function Canvas() {
                 <Label htmlFor="picture">Picture</Label>
                 <Input ref={image} id="picture" type="file" />
               </div>
+
               <div className="grid w-full gap-2">
                 <Label htmlFor="description">Description</Label>
                 <Textarea
@@ -174,45 +155,16 @@ export default function Canvas() {
                   placeholder="Type a short description here."
                 />
               </div>
-              <div className="grid w-full items-center gap-1.5">
+              <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="tags">Tag</Label>
-                <Select
-                  onValueChange={(v) => {
-                    setTag(v);
-                  }}
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a Proper Tag" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectItem value="Tech">Tech</SelectItem>
-                      <SelectItem value="Food">Food</SelectItem>
-                      <SelectItem value="Trip">Trip</SelectItem>
-                      <SelectItem value="Web">Web</SelectItem>
-                      <SelectItem value="Robotics">Robotics</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
+                <Input ref={tag} type="text" placeholder="Add a Suitable Tag" />
               </div>
             </div>
-            {showAlert && (
-              <div>
-                <Link to="/canvas" />
-                <Alert variant="destructive">
-                  <AlertCircle className="h-4 w-4" />
-                  <AlertTitle>Missing field Found.</AlertTitle>
-                  <AlertDescription>
-                    Fill all Field to upload on Insight-Ink.
-                  </AlertDescription>
-                </Alert>
-              </div>
-            )}
             <DialogFooter>
               <Button
                 onClick={checkFields}
                 variant={"outline"}
-                className="bg-green-500 hover:bg-green-700 w-full"
+                className="bg-green-500 hover:bg-green-700"
               >
                 Publish the Blog
               </Button>
@@ -265,6 +217,21 @@ export default function Canvas() {
           }}
         />
       </div>
+      <Alert variant="destructive">
+        <AlertCircle className="h-4 w-4" />
+        <AlertTitle>Missing field Found.</AlertTitle>
+        <AlertDescription>
+          Fill all Field to upload on Insight-Ink.
+        </AlertDescription>
+      </Alert>
+      {showAlert && (
+        <div>
+          <Link to="/canvas" />
+          <div className="bg-red-200 text-red-700 p-4 rounded-md my-4">
+            Missing field Found. Fill all Field to upload on Insight-Ink.
+          </div>
+        </div>
+      )}
     </div>
   );
 }

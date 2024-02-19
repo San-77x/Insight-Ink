@@ -1,15 +1,29 @@
 import { Clock, MessageSquareText } from "lucide-react";
 import { Button } from "./ui/button";
 
-function Card({ comments = "0 Comments" }: { comments: string }) {
-  const head = JSON.parse(localStorage.getItem("head") || '""');
-  const description = JSON.parse(localStorage.getItem("description") || '""');
-  const image = JSON.parse(localStorage.getItem("image") || '""');
-  const tag = JSON.parse(localStorage.getItem("tag") || '""');
-  const date = JSON.parse(localStorage.getItem("date") || '""');
-  const postIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
-  const story = JSON.parse(localStorage.getItem("story") || "[]");
-  console.log({ head, description, image, tag, date, postIndex, story });
+function Card({
+  comments = "0 Comments",
+  head,
+  description,
+  image,
+  tag,
+  date,
+}: {
+  comments?: string;
+  head: string;
+  description: string;
+  image: string | undefined;
+  tag: string;
+  date: string;
+}) {
+  // const head = JSON.parse(localStorage.getItem("head") || '""');
+  // const description = JSON.parse(localStorage.getItem("description") || '""');
+  // const image = JSON.parse(localStorage.getItem("image") || '""');
+  // const tag = JSON.parse(localStorage.getItem("tag") || '""');
+  // const date = JSON.parse(localStorage.getItem("date") || '""');
+  // const postIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
+  // const story = JSON.parse(localStorage.getItem("story") || "[]");
+  // console.log({ head, description, image, tag, date, postIndex, story });
 
   return (
     <>
