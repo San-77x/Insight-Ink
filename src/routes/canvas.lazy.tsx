@@ -80,9 +80,10 @@ export default function Canvas() {
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogTitle>Add Description and Cover image</DialogTitle>
+              <DialogTitle>Add these fields to Publish</DialogTitle>
               <DialogDescription>
-                Add Description and Cover image. Click Publish when you're done.
+                Add Description, Cover image, Tag. Click Publish when you're
+                done.
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
@@ -94,6 +95,10 @@ export default function Canvas() {
               <div className="grid w-full gap-2">
                 <Label htmlFor="description">Description</Label>
                 <Textarea placeholder="Type a short description here." />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="tags">Tag</Label>
+                <Input type="text" placeholder="Add a Suitable Tag" />
               </div>
             </div>
             <DialogFooter>
