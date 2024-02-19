@@ -10,7 +10,7 @@ function NotFoundAlert() {
         <AlertTitle>Missing Field Found</AlertTitle>
         <AlertDescription>Add every field to Continue</AlertDescription>
       </Alert>
-      <Link to="/canvas" />;
+      <Link to="/" />;
     </div>
   );
 }
