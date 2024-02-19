@@ -24,10 +24,17 @@ export const Route = createLazyFileRoute("/canvas")({
 
 export default function Canvas() {
   const title = useRef<HTMLInputElement>(null);
-  const editorRef = useRef(null);
+  const content = useRef<HTMLTextAreaElement>(null);
+  const tag = useRef<HTMLInputElement>(null);
+  const image = useRef<HTMLInputElement>(null);
 
   const saveData = () => {
-    if (title.current?.value && editorRef.current) {
+    if (
+      title.current?.value &&
+      content.current?.value &&
+      tag.current?.value &&
+      image.current?.value
+    ) {
       const currentIndex = parseInt(
         localStorage.getItem("postIndex") || "0",
         10
@@ -37,17 +44,21 @@ export default function Canvas() {
 
       const data = {
         title: title.current.value,
-        content: editorRef.current.getContent(),
+        content: content.current.value,
+        tag: tag.current.value,
+        image: image.current.value,
         relativeDate: relativeDate,
       };
       const key = `post-${currentIndex}`;
       localStorage.setItem("head", JSON.stringify(data.title));
       localStorage.setItem("description", JSON.stringify(data.content));
+      localStorage.setItem("tag", JSON.stringify(data.tag));
+      localStorage.setItem("image", JSON.stringify(data.image));
       localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
       console.log(key);
     } else {
-      alert("Title or content is missing.");
+      alert("Found Missing Field");
     }
   };
 
@@ -86,16 +97,19 @@ export default function Canvas() {
             <div className="grid gap-4 py-4">
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="picture">Picture</Label>
-                <Input id="picture" type="file" />
+                <Input ref={image} id="picture" type="file" />
               </div>
 
               <div className="grid w-full gap-2">
                 <Label htmlFor="description">Description</Label>
-                <Textarea placeholder="Type a short description here." />
+                <Textarea
+                  ref={content}
+                  placeholder="Type a short description here."
+                />
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="tags">Tag</Label>
-                <Input type="text" placeholder="Add a Suitable Tag" />
+                <Input ref={tag} type="text" placeholder="Add a Suitable Tag" />
               </div>
             </div>
             <DialogFooter>

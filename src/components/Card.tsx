@@ -1,17 +1,14 @@
 import { Clock, MessageSquareText } from "lucide-react";
 import { Button } from "./ui/button";
 
-type prop = {
-  tag?: string;
-  image?: string;
-  comments?: string;
-};
-function Card({ tag, image, comments = "0 Comments" }: prop) {
+function Card({ comments = "0 Comments" }: { comments: string }) {
   const head = JSON.parse(localStorage.getItem("head") || '""');
   const description = JSON.parse(localStorage.getItem("description") || '""');
+  const image = JSON.parse(localStorage.getItem("image") || '""');
+  const tag = JSON.parse(localStorage.getItem("tag") || '""');
   const date = JSON.parse(localStorage.getItem("date") || '""');
   const postIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
-  console.log({ head, description, date, postIndex });
+  console.log({ head, description, image, tag, date, postIndex });
 
   return (
     <>
