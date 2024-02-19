@@ -4,6 +4,19 @@ import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import moment from "moment";
+import DescriptionCard from "@/components/DescriptionCard";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
@@ -55,18 +68,47 @@ export default function Canvas() {
             Cancel
           </Button>
         </Alert>
-        <Alert
-          title={"Are you sure to upload this?"}
-          description={"This will upload your writings into Insight Ink"}
-          data={saveData}
-        >
-          <Button
-            variant={"destructive"}
-            className="rounded-md bg-green-500 hover:bg-green-700 px-8"
-          >
-            Publish
-          </Button>
-        </Alert>
+
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              variant={"destructive"}
+              className="rounded-md bg-green-500 hover:bg-green-700 px-8"
+            >
+              Publish
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Add Description and Cover image</DialogTitle>
+              <DialogDescription>
+                Add Description and Cover image. Click Publish when you're done.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="picture">Picture</Label>
+                <Input id="picture" type="file" />
+              </div>
+
+              <div className="grid w-full gap-2">
+                <Label htmlFor="description">Description</Label>
+                <Textarea placeholder="Type a short description here." />
+              </div>
+            </div>
+            <DialogFooter>
+              <Alert
+                title={"Are you sure to upload this?"}
+                description={"This will upload your writings into Insight Ink"}
+                data={saveData}
+              >
+                <Button variant={"outline"} type="submit">
+                  Publish the Blog
+                </Button>
+              </Alert>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="border-2 border-gray-100 mt-8 mb-2 rounded-lg mx-6">
