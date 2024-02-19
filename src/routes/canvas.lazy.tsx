@@ -4,7 +4,6 @@ import { Alert } from "@/components/Alert";
 import { Button } from "@/components/ui/button";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import moment from "moment";
-import DescriptionCard from "@/components/DescriptionCard";
 import {
   Dialog,
   DialogContent,
@@ -17,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
@@ -27,13 +27,15 @@ export default function Canvas() {
   const content = useRef<HTMLTextAreaElement>(null);
   const tag = useRef<HTMLInputElement>(null);
   const image = useRef<HTMLInputElement>(null);
+  const editorRef = useRef(null);
 
   const saveData = () => {
     if (
       title.current?.value &&
       content.current?.value &&
       tag.current?.value &&
-      image.current?.value
+      image.current?.value &&
+      editorRef.current
     ) {
       const currentIndex = parseInt(
         localStorage.getItem("postIndex") || "0",
@@ -43,6 +45,7 @@ export default function Canvas() {
       const relativeDate = now.fromNow();
 
       const data = {
+        story: editorRef.current.getContent(),
         title: title.current.value,
         content: content.current.value,
         tag: tag.current.value,
@@ -50,6 +53,10 @@ export default function Canvas() {
         relativeDate: relativeDate,
       };
       const key = `post-${currentIndex}`;
+      localStorage.setItem(
+        "story",
+        JSON.stringify(editorRef.current.getContent())
+      );
       localStorage.setItem("head", JSON.stringify(data.title));
       localStorage.setItem("description", JSON.stringify(data.content));
       localStorage.setItem("tag", JSON.stringify(data.tag));
@@ -57,8 +64,8 @@ export default function Canvas() {
       localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
       console.log(key);
+      <Link to="/" />;
     } else {
-      alert("Found Missing Field");
     }
   };
 

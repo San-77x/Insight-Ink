@@ -18,10 +18,10 @@ export function Alert({
   description,
   data,
 }: {
-  children: ReactElement;
-  title: string;
-  data: any;
-  description: string;
+  children?: ReactElement;
+  title?: string;
+  data?: any;
+  description?: string;
 }) {
   return (
     <AlertDialog>
@@ -40,7 +40,7 @@ export function Alert({
             onClick={data}
             className="bg-red-500 hover:bg-red-700"
           >
-            <Link to="/">Continue</Link>
+            Continue
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

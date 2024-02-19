@@ -8,7 +8,8 @@ function Card({ comments = "0 Comments" }: { comments: string }) {
   const tag = JSON.parse(localStorage.getItem("tag") || '""');
   const date = JSON.parse(localStorage.getItem("date") || '""');
   const postIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
-  console.log({ head, description, image, tag, date, postIndex });
+  const story = JSON.parse(localStorage.getItem("story") || "[]");
+  console.log({ head, description, image, tag, date, postIndex, story });
 
   return (
     <>
