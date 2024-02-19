@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Link } from "@tanstack/react-router";
+import NotFoundAlert from "@/components/NotFoundAlert";
 
 export const Route = createLazyFileRoute("/canvas")({
   component: Canvas,
@@ -65,8 +66,7 @@ export default function Canvas() {
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
       console.log(key);
       <Link to="/" />;
-    } else {
-    }
+    } else <NotFoundAlert />;
   };
 
   return (
