@@ -38,6 +38,7 @@ export default function Canvas() {
       image.current?.value &&
       editorRef.current
     ) {
+      <Link to="/" />;
       const currentIndex = parseInt(
         localStorage.getItem("postIndex") || "0",
         10
@@ -65,7 +66,6 @@ export default function Canvas() {
       localStorage.setItem("date", JSON.stringify(data.relativeDate));
       localStorage.setItem("postIndex", (currentIndex + 1).toString());
       console.log(key);
-      <Link to="/" />;
     } else <NotFoundAlert />;
   };
 
@@ -123,9 +123,8 @@ export default function Canvas() {
               <Alert
                 title={"Are you sure to upload this?"}
                 description={"This will upload your writings into Insight Ink"}
-                data={saveData}
               >
-                <Button variant={"outline"} type="submit">
+                <Button onClick={saveData} variant={"outline"} type="submit">
                   Publish the Blog
                 </Button>
               </Alert>
