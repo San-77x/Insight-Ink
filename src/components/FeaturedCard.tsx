@@ -10,23 +10,10 @@ function FeaturedCard() {
   const date = JSON.parse(localStorage.getItem("date") || '""');
   const postIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
   const story = JSON.parse(localStorage.getItem("story") || "[]");
+  const key = localStorage.getItem("postIndex");
+
   console.log({ head, description, image, tag, date, postIndex, story });
 
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const allPosts = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith("post-")) {
-        const post = JSON.parse(localStorage.getItem(key));
-        allPosts.push({
-          key,
-          ...post,
-        });
-      }
-    }
-    setPosts(allPosts);
-  }, []);
   return (
     <div className="bg-white">
       <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
@@ -40,20 +27,18 @@ function FeaturedCard() {
           <div>See All</div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
-          {posts.map(({ title, description, tag, date, image }) => (
-            <Card
-              head={title}
-              description={description}
-              image={image}
-              tag={tag}
-              date={date}
-            />
-            //    key={index}
-            //   title={post.title}
-            //   content={post.description}
-            //   image={post.image}
-            //   date={post.relativeDate}
-          ))}
+          <Card
+            head={title}
+            description={description}
+            image={image}
+            tag={tag}
+            date={date}
+          />
+          // key={index}
+          // title={post.title}
+          // content={post.description}
+          // image={post.image}
+          // date={post.relativeDate}
         </div>
       </div>
     </div>

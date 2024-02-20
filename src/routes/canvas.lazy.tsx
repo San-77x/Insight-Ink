@@ -114,7 +114,6 @@ export default function Canvas() {
       console.log(key);
     }
   };
-
   return (
     <div className="mx-auto max-w-[1680px]">
       <div className="flex justify-end my-4 mx-4">
