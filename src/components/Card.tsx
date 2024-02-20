@@ -16,15 +16,6 @@ function Card({
   tag: string;
   date: string;
 }) {
-  // const head = JSON.parse(localStorage.getItem("head") || '""');
-  // const description = JSON.parse(localStorage.getItem("description") || '""');
-  // const image = JSON.parse(localStorage.getItem("image") || '""');
-  // const tag = JSON.parse(localStorage.getItem("tag") || '""');
-  // const date = JSON.parse(localStorage.getItem("date") || '""');
-  // const postIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
-  // const story = JSON.parse(localStorage.getItem("story") || "[]");
-  // console.log({ head, description, image, tag, date, postIndex, story });
-
   return (
     <>
       <div className="rounded overflow-hidden shadow-lg flex flex-col h-[500px]">
