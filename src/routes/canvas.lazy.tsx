@@ -75,43 +75,31 @@ export default function Canvas() {
   };
 
   const saveData = async () => {
-    if (
-      title.current?.value &&
-      content.current?.value &&
-      selectedTag &&
-      image.current?.files &&
-      editorRef.current?.getContent()
-    ) {
-      window.location.href = "/";
-      const base64Image = await convertToBase64(image.current.files[0]);
+    window.location.href = "/";
+    const base64Image = await convertToBase64(image.current.files[0]);
+    const currentIndex = parseInt(localStorage.getItem("postIndex") || "0", 10);
+    const now = moment();
+    const relativeDate = now.fromNow();
 
-      const currentIndex = parseInt(
-        localStorage.getItem("postIndex") || "0",
-        10
-      );
-      const now = moment();
-      const relativeDate = now.fromNow();
+    const data = {
+      story: editorRef.current.getContent(),
+      title: title.current?.value,
+      content: content.current?.value,
+      tag: selectedTag,
+      image: base64Image,
+      relativeDate: relativeDate,
+    };
+    console.log(data);
 
-      const data = {
-        story: editorRef.current.getContent(),
-        title: title.current.value,
-        content: content.current.value,
-        tag: selectedTag,
-        image: base64Image,
-        relativeDate: relativeDate,
-      };
-      console.log(data);
-
-      const key = `post-${currentIndex}`;
-      localStorage.setItem("story", JSON.stringify(data.story));
-      localStorage.setItem("head", JSON.stringify(data.title));
-      localStorage.setItem("description", JSON.stringify(data.content));
-      localStorage.setItem("tag", JSON.stringify(data.tag));
-      localStorage.setItem("image", JSON.stringify(data.image));
-      localStorage.setItem("date", JSON.stringify(data.relativeDate));
-      localStorage.setItem("postIndex", (currentIndex + 1).toString());
-      console.log(key);
-    }
+    const key = `post-${currentIndex}`;
+    localStorage.setItem("story", JSON.stringify(data.story));
+    localStorage.setItem("head", JSON.stringify(data.title));
+    localStorage.setItem("description", JSON.stringify(data.content));
+    localStorage.setItem("tag", JSON.stringify(data.tag));
+    localStorage.setItem("image", JSON.stringify(data.image));
+    localStorage.setItem("date", JSON.stringify(data.relativeDate));
+    localStorage.setItem("postIndex", (currentIndex + 1).toString());
+    console.log(key);
   };
   return (
     <div className="mx-auto max-w-[1680px]">
