@@ -21,7 +21,7 @@ function FeaturedCard() {
           <div className="text-darkk flex items-center pb-2 pr-2 border-b-2 border-black uppercase">
             <TrendingUp />
             <div className="font-semibold inline-block px-2">
-              Trending On Insight-Ink
+              Recently Posted On Insight-Ink
             </div>
           </div>
           <div>See All</div>
