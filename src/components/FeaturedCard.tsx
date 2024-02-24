@@ -12,7 +12,7 @@ function FeaturedCard() {
   const story = JSON.parse(localStorage.getItem("story") || "[]");
   const key = localStorage.getItem("postIndex");
 
-  console.log({ head, description, image, tag, date, postIndex, story });
+  console.log({ head, description, image, tag, date, postIndex, story, key });
 
   return (
     <div className="bg-white">
@@ -28,17 +28,17 @@ function FeaturedCard() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
           <Card
-            head={title}
+            head={head}
             description={description}
             image={image}
             tag={tag}
             date={date}
           />
-          // key={index}
+          {/* // key={index}
           // title={post.title}
           // content={post.description}
           // image={post.image}
-          // date={post.relativeDate}
+          // date={post.relativeDate} */}
         </div>
       </div>
     </div>
