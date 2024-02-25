@@ -36,7 +36,7 @@ export function Alert({
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This may cause clear your writings
+            This may cause clear your writings.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
